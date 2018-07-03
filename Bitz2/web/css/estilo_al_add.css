@@ -1,0 +1,30 @@
+.nav-wrapper{
+    background-color: #031634;
+}
+/*LOGO*/
+.brand-logo img{
+width: 65px;
+height: 65px;
+}
+.page-footer{
+    background-color: #031634;
+}
+#cover_datos{
+    height: 100%;
+    width: 100%;
+}
+#foto_c{
+
+    width: 150px;
+    height: 150px;
+    left: 450px;
+    top: 80px;
+}
+#nombre_usuario{
+
+    color: aliceblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    left: 620px;
+    font-size: 40px;
+    top: 80px;
+}
