@@ -1,0 +1,225 @@
+body{
+
+background-image: url(../images/fondoindex.jpg);    
+cursor: url(), pointer;
+
+}
+
+/*GROW*/
+.grow img {
+    height: 300px;
+    width: 300px;
+   
+    -webkit-transition: all 1s ease;
+       -moz-transition: all 1s ease;
+         -o-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+            transition: all 1s ease;
+  }
+   
+  .grow img:hover {
+    width: 400px;
+    height: 400px;
+  }
+
+.container-portada{
+color: white;
+width: 100%;
+height: 300px;
+background-image: url(../images/mother.jpg);
+background-size: 200%;
+animation: movimiento 20s infinite linear alternate ;
+position:relative;
+z-index: -1;
+}
+
+.personal-color2{
+    background-image: url(../images/bgcard2.jpg) !important;
+  }
+
+  .personal-color3{
+    background-image: url(../images/bgcard3.jpg) !important;
+  }
+  .personal-color4{
+    background-image: url(../images/bgcard4.jpg) !important;
+  }
+
+  .personal-color5{
+    background-image: url(../images/fondobg.gif) !important;
+    background-size: 100%;
+  }
+
+.container-details{
+
+color: white;
+position: absolute;
+
+}
+    
+@keyframes movimiento{
+    from{
+        background-position: bottom left;
+    }to{
+        background-position: top right;
+    }
+}
+
+.container-portada2{
+    color: white;
+    width: 100%;
+    height: 300px;
+    background-image: url(../images/movhamb.jpg);
+    background-size: 110%;
+    animation: movimiento 5s infinite linear alternate ;
+    position:relative;
+    z-index: -1;
+    }
+
+.capa-gradient{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: -webkit-linear-gradient(left,black,rgb(18, 49, 226));
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.txtjustificado{
+    text-align: justify;
+}
+
+.imgmenu{
+width: 100%;
+height: 200px;
+position: relative;
+
+
+}
+
+.imgmenu img{
+
+width: 100%;
+height: 100%;
+
+}
+
+a .dropdown-button .btn .deep-orange .accent-a:hover{
+
+background-color: #640000;
+
+}
+
+.margen-texto{
+
+padding: 24px;
+
+}
+
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../icons/material_icons.woff2) format('woff2');
+  }
+  @font-face {
+    font-family: 'Angel';
+    src: url("../fonts/Angel/angel.otf");
+}
+
+@font-face {
+    font-family: 'future';
+    src: url("../fonts/PROMETHEUS.otf");
+}
+
+  
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+  }
+
+ .carousel{
+    max-width: 100%;
+  }
+
+.txtLog{
+  color: white;
+  text-align: center;
+  background-color: transparent;
+  width: 50%;
+}
+
+.container-portada2 h3{
+    
+    color: #fff;
+    font-size: 64px;
+
+
+}
+
+.malla-negra{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5)
+
+}
+
+.brand-logo{
+    margin-left: 10px;
+}
+
+.imagen-producto{
+
+width: 315px;
+height: 355px;
+}
+
+#parallax2 .parallax-container{
+
+position: relative;
+overflow: hidden;
+height: 50px;    
+
+}
+
+#parallax2.parallax-container h2{
+position: absolute;
+left: 40%;
+top: 26%;
+
+}
+
+#test1 img{
+
+width: 150px;
+height: 150px;
+
+}
+
+.collapsible-body{
+
+background-color: white;
+
+}
+
+#button-margin{
+    margin-top: 3%;
+}
+.fondo_p img{
+    height: 100%;
+    width: 350px;
+}
+.ver-detalle{
+    color: #86bb5d;
+}

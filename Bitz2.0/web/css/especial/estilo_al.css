@@ -1,0 +1,179 @@
+.nav-wrapper{
+    background-color: #031634;
+}
+/*LOGO*/
+.brand-logo img{
+width: 65px;
+height: 65px;
+}
+/*Cover promociones*/
+.cover_promociones img{
+    width: 100%;
+    height: 450px;
+}
+.cover_promociones h1{
+    left: 340px;
+    position: absolute;
+    top: 198px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:rgb(236, 236, 236);
+    font-size: 120px;
+}
+#fondo_p{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 500px;
+}
+/* Titulo promocional*/
+.texto_intro{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: absolute;
+    left: 118px;
+    color:#CDB380;
+}
+/* Productos promocionales*/
+.card-panel{
+    width: 600px;
+    
+}
+.waves-effect{
+    left: 240px;
+    top: 55px;
+}
+/* Promocional 1*/
+.promocion1 img{
+    width: 180px;
+    height: 100px;
+}
+.promocion1{
+    position: absolute;
+    top: 690px;
+    left: 60px;
+    height: 150px;
+}
+#text1{
+    position: absolute;
+    top: 52px;
+    
+}
+/* Promocional 2*/
+.promocion2 img{
+    width: 180px;
+    height: 100px;
+}
+.promocion2{
+    position: absolute;
+    top: 690px;
+    left: 700px;
+    height: 150px;
+}
+/* Promocional 3*/
+.promocion3 img{
+    width: 180px;
+    height: 100px;
+}
+.promocion3{
+    position: absolute;
+    top: 950px;
+    left: 60px;
+    height: 150px;
+}
+/* Promocional 4*/
+.promocion4 img{
+    width: 180px;
+    height: 100px;
+}
+.promocion4{
+    position: absolute;
+    top: 950px;
+    left: 700px;
+    height: 150px;
+}
+/* Modal*/
+.modal{
+    width: 950px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.modal{
+    overflow-x:hidden;
+    overflow-y:hidden;
+    height: 900px;
+}
+.modal-content img{
+    width: 250px;
+    height: 250px;
+}
+.modal-content p{
+    position: absolute;
+    left: 295px;
+    top: 60px;
+    font-size: 20px; 
+}
+.Aceptar{
+    left: 0;
+    top: 5px;
+    color: #033649;
+}
+h4{
+    text-align: center;
+    color: #CDB380;
+}
+.boton{
+    background-color: #036564;
+}
+.page-footer{
+    position: absolute;
+    top: 1257px;
+    width: 100%;
+    background-color: #031634;
+}
+.Swipers{
+    position: absolute;
+    top: 450px;
+    width: 900px;
+}
+.enviar{
+    position: absolute;
+    top: 100px;
+    left: 710px;
+}
+/*PAG CARRITO*/
+#fondo_c {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 1200px;
+}
+/*tabla*/
+.tabla{
+    position:absolute;
+    top: 300px;
+    width: 990px;
+    background-color: #ffffff;
+}   
+#titulo_c{
+    position: absolute;
+    color: #CDB380;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    top: 100px;
+    left: 495px;
+    font-size: 100px;
+} 
+.monitor1{
+    position: relative;
+    width: 100px;
+    height: 90px;
+}
+/*Resumen*/
+.resumen{
+    color: aliceblue;
+    position: absolute;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    top: 700px;
+   
+}
+.txt {
+    position: relative;
+    top: 80px;
+}

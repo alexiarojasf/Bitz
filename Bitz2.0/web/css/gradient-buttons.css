@@ -1,0 +1,472 @@
+/*Hello world, well this CSS file will help you to make diferent creations with your buttons and
+  make it more colorful and better just add it to a <div>,<button>,<a> like a class 
+  
+ Example:
+		<a class="but-rounded but-blue-green">
+				<h1>Im a button!</h1>
+		</a>
+
+This contains tools to make buttons rounded and square type of buttons if you want to learn more about GradientButtonsJAMM
+check out our web site https://gradientbuttonsjamm.com
+*/
+
+
+
+/*
+-----------------------------------------RECOMENDED COLORS --------------------------------------------------------------
+*/
+.blue{
+	background-color:#007bff !important;
+} 
+	
+.indigo{
+	background-color:#6610f2 !important;
+} 
+	
+.purple{
+	background-color:#6f42c1 !important;
+} 
+	
+.pink{
+	background-color:#e83e8c !important;
+} 
+	
+.red{
+	background-color:#dc3545 !important;
+} 
+	
+.orange{
+	background-color:#fd7e14 !important;
+} 
+	
+.yellow{
+	background-color:#ffc107 !important;
+} 
+	
+.green{
+	background-color:#28a745 !important;
+} 
+	
+.teal{
+	background-color:#20c997 !important;
+} 
+	
+.cyan{
+	background-color:#17a2b8 !important;
+} 
+	
+.white{
+	background-color:#fff !important;
+			
+} 
+.gray{
+	background-color:#6c757d !important;
+} 
+	
+.gray-dark{
+	background-color:#343a40 !important;
+} 
+	
+.primary{
+	background-color:#007bff !important;
+} 
+	
+.secondary{
+	background-color:#6c757d !important;
+} 
+	
+.success{
+	background-color:#28a745 !important;
+} 
+	
+.info{
+	background-color:#17a2b8 !important;
+} 
+	
+.warning{
+	background-color:#ffc107 !important;
+} 
+	
+.danger{
+	background-color:#dc3545 !important;
+} 
+	
+.light{
+	background-color:#f8f9fa !important;
+} 
+	
+.dark{
+	background-color:#343a40 !important;
+} 
+
+/*--------------------------------BORDER LINES COLORS----------------------------------------------------*/
+.line-blue{
+	background-color: transparent !important;
+    color: #4285f4 !important;
+	border: 2px solid #4285f4 !important;
+} 
+	
+.line-indigo{
+	background-color: transparent !important;
+    color: #6610f2 !important;
+	border: 2px solid #6610f2 !important;
+} 
+	
+.line-purple{
+	background-color: transparent !important;
+    color: #6f42c1 !important;
+	border: 2px solid #6f42c1 !important;
+} 
+	
+.line-pink{
+	background-color: transparent !important;
+    color: #e83e8c !important;
+	border: 2px solid #e83e8c !important;
+} 
+	
+.line-red{
+	background-color: transparent !important;
+    color: #dc3545 !important;
+	border: 2px solid #dc3545 !important;
+} 
+	
+.line-orange{
+	background-color: transparent !important;
+    color: #fd7e14 !important;
+	border: 2px solid #fd7e14 !important;
+} 
+	
+.line-yellow{
+	background-color: transparent !important;
+    color: #ffc107 !important;
+	border: 2px solid #ffc107 !important;
+} 
+	
+.line-green{
+	background-color: transparent !important;
+    color: #28a745 !important;
+	border: 2px solid #28a745 !important;
+} 
+	
+.line-teal{
+	background-color: transparent !important;
+    color: #20c997 !important;
+	border: 2px solid #20c997 !important;
+} 
+	
+.line-cyan{
+	background-color: transparent !important;
+    color: #17a2b8 !important;
+	border: 2px solid #17a2b8 !important;
+} 
+	
+.line-white{
+	background-color: transparent !important;
+    color: #fff !important;
+	border: 2px solid #fff !important;	
+} 
+.line-gray{
+	background-color: transparent !important;
+    color: #6c757d !important;
+	border: 2px solid #6c757d !important;
+} 
+	
+.line-gray-dark{
+	background-color: transparent !important;
+    color: #343a40 !important;
+	border: 2px solid #343a40 !important;
+} 
+	
+.line-primary{
+	background-color: transparent !important;
+    color: #007bff !important;
+	border: 2px solid #007bff !important;
+} 
+	
+.line-secondary{
+	background-color: transparent !important;
+    color: #6c757d !important;
+	border: 2px solid #6c757d !important;
+} 
+	
+.line-success{
+	background-color: transparent !important;
+    color: #28a745 !important;
+	border: 2px solid #28a745 !important;
+} 
+	
+.line-info{
+	background-color: transparent !important;
+    color: #17a2b8 !important;
+	border: 2px solid #17a2b8 !important;
+} 
+	
+.line-warning{
+	background-color: transparent !important;
+    color: #ffc107 !important;
+	border: 2px solid #ffc107 !important;
+} 
+	
+.line-danger{
+	background-color: transparent !important;
+    color: #dc3545 !important;
+	border: 2px solid #dc3545 !important;
+} 
+	
+.line-light{
+	background-color: transparent !important;
+    color: #f8f9fa !important;
+	border: 2px solid #f8f9fa !important;
+} 
+	
+.line-dark{
+	background-color: transparent !important;
+    color: #343a40 !important;
+	border: 2px solid #343a40 !important;
+} 
+	
+
+
+
+/*Buttons Basics*/
+
+.but {
+    background-color: rgb(245, 159, 0); /* Default Color */
+    border: none;
+    color: white;
+    padding: 6px 30px;
+    text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+    display: inline-block;
+	font-size: 16px;
+	transition-duration: 0.4s;
+	outline : 0;
+	-moz-outline : 0;
+	font-family: Arial, Helvetica, sans-serif; 
+
+}
+
+.but:focus{
+background-color: rgb(245, 159, 0) !important; 
+}
+
+.but:before{
+	position:absolute;
+	transition: box-shadow 0.6s ease-out;
+	z-index: -1;
+}
+
+.but:hover{
+	box-shadow: 0 5px 16px 0 rgba(0,0,0,0.2), 0 1px 10px 0 rgba(0,0,0,0.19);
+}
+
+.but:hover::before{
+	box-shadow: inset 0 0 0 160px #ee3769;
+}
+
+
+/*----------------------------------------------BUTTONS SHAPE-----------------------------------------------*/
+
+
+.but-rounded{
+	border-radius: 45rem;
+}
+
+.but-overline{
+	transition-duration: 0.4s;
+    background-color: transparent;
+    color: #2bbbad;
+	border: 2px solid #2bbbad;
+}
+
+
+.but-overline:focus{
+	background-color: transparent !important; 
+	}
+
+
+.but-circle {
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	padding: 6px 0;
+	font-size: 12px;
+	line-height: 1.428571429;
+	border-radius: 15px;
+  }
+  .but-circle.size-lg {
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	padding: 10px 16px;
+	font-size: 18px;
+	line-height: 1.33;
+	border-radius: 25px;
+  }
+  .but-circle.size-xl {
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	padding: 10px 16px;
+	font-size: 24px;
+	line-height: 1.33;
+	border-radius: 35px;
+  }
+
+
+
+
+/*------------------------------------------GRADIENT COLOR COMBINATIONS------------------------------------------*/
+/*This section is divided in # options for what you really want like static colors or hover effects on it all 
+  in our special gradient style*/
+
+/*-------------------------------------------STATIC COLORS-------------------------------------------------------*/
+.but-st-blue-moon{
+	background: linear-gradient(50deg, #5ed1fc,#3647b3) !important;
+	transition-duration: 0.4s;
+}
+
+.but-st-blue-lagoon{
+	background: linear-gradient(50deg, #43C6AC,#191654) !important;
+	transition-duration: 0.4s;
+}
+
+
+.but-st-red-lava{
+	background: linear-gradient(50deg,#ffd86f,#fc6262) !important;
+	transition-duration: 0.4s;
+}
+
+.but-st-green-fairy{
+	background: linear-gradient(50deg,#2096ff,#05ffa3) !important;
+	transition-duration: 0.4s;
+}
+
+
+.but-st-purple-lavander{
+	background: linear-gradient(50deg,#ff88ce,#8f8bf7) !important;
+	transition-duration: 0.4s;
+}
+
+.but-st-purple-midnight {
+	background-image: linear-gradient(50deg, #642B73 0%, #C6426E 51%, #642B73 100%) !important;
+	transition-duration: 0.4s;
+}
+
+.but-st-red-blood {
+	background-image: linear-gradient(50deg, #200122 0%, #6f0000 51%, #200122 100%) !important;
+	transition-duration: 0.4s;
+}
+
+.but-st-orange-peach {
+	background-image: linear-gradient(50deg, #FF4E50 0%, #F9D423 51%, #FF4E50 100%) !important;
+	transition-duration: 0.4s;
+}
+.but-st-virgin-america {
+	background-image: linear-gradient(50deg, #7b4397 0%, #dc2430 100%) !important;
+	transition-duration: 0.4s;
+}
+.but-st-cherry-blossom {
+	background-image: linear-gradient(50deg, #FBD3E9 , #BB377D) !important;
+	transition-duration: 0.4s;
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------GRADIENT COLORS WITH HOVER EFFECTS--------------------------------------*/
+
+.but-hv-purple-pink {
+	background: linear-gradient(50deg, #642B73 0%, #C6426E 51%, #642B73 100%);
+	background-size: 400% 400%;
+}
+.but-hv-purple-pink:hover { 
+	-webkit-animation: Gradient 5s ease infinite;
+	-moz-animation: Gradient 5s ease infinite;
+	animation: Gradient 5s ease infinite; 
+}
+
+.but-hv-blue-green{
+	background: linear-gradient(-45deg, rgb(126, 240, 104), #23D5AB, rgb(42, 238, 130), rgb(3, 187, 219));
+	background-size: 400% 400%;
+}
+
+.but-hv-blue-green:hover{
+	-webkit-animation: Gradient 5s ease infinite;
+	-moz-animation: Gradient 5s ease infinite;
+	animation: Gradient 5s ease infinite;
+
+}
+.but-hv-red-white{
+	background: linear-gradient(-45deg,  rgb(223, 55, 33), rgb(201, 35, 35),rgb(255, 87, 87), rgb(245, 42, 42) );
+	background-size: 400% 400%;
+}
+
+.but-hv-red-white:hover{
+	-webkit-animation: Gradient 5s ease infinite;
+	-moz-animation: Gradient 5s ease infinite;
+	animation: Gradient 5s ease infinite;
+
+}
+
+.but-hv-red-blood {
+	background: linear-gradient(50deg, #200122 0%, #a81414 51%, #200122 100%);
+	background-size: 400% 400%;
+}
+
+.but-hv-red-blood:hover{
+	-webkit-animation: Gradient 5s ease infinite;
+	-moz-animation: Gradient 5s ease infinite;
+	animation: Gradient 5s ease infinite;
+}
+
+.but-hv-virgin-america {
+	background: linear-gradient(50deg, #7b4397,#dc2430 ,#7b4397, #dc2430);
+	background-size: 400% 400%;
+}
+.but-hv-virgin-america:hover{
+	-webkit-animation: Gradient 5s ease infinite;
+	-moz-animation: Gradient 5s ease infinite;
+	animation: Gradient 5s ease infinite;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------Animation Point-----------------------------------------------------------*/
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}

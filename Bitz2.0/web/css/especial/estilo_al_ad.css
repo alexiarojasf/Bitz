@@ -1,0 +1,34 @@
+
+.tabla{
+    background-color: #ffffff;
+}   
+.resumen{
+    top: 50px;
+    color: #cdb380;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    left: 500px;
+}
+.edit{
+   width: 30px;
+   height: 30px;
+}
+#user{
+    top: 155px;
+    right: 335px;
+}
+.mod_add{
+    opacity: 0.0;
+    top: 155px;
+    left: 985px;
+    width: 30px;
+    height: 30px;
+}
+h4{
+    text-align: center;
+    color: #cdb380;
+}
+.editar{
+    opacity: 0.0;
+    top: 235px;
+    left: 1040px;
+}

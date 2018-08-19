@@ -1,0 +1,114 @@
+.nav-wrapper{
+    background-color: #031634;
+}
+/*LOGO*/
+.brand-logo img{
+width: 65px;
+height: 65px;
+}
+/*Cover promociones*/
+.cover_promociones img{
+    width: 100%;
+    height: 450px;
+}
+.cover_promociones h1{
+    left: 340px;
+    position: absolute;
+    top: 198px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:rgb(236, 236, 236);
+    font-size: 120px;
+}
+#fondo_p{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 500px;
+}
+/* Titulo promocional*/
+.texto_intro{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#CDB380;
+}
+/* Productos promocionales*/
+.card-panel{
+    width: 600px;
+    
+}
+/* Promocional 1*/
+.promocion1 img{
+    width: 180px;
+    height: 100px;
+}
+/* Promocional 2*/
+.promocion2 img{
+    width: 180px;
+    height: 100px;
+}
+
+/* Promocional 3*/
+.promocion3 img{
+    width: 180px;
+    height: 100px;
+}
+
+/* Promocional 4*/
+.promocion4 img{
+    width: 180px;
+    height: 100px;
+}
+/* Modal*/
+.modal{
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.modal{
+    overflow-x:hidden;
+    overflow-y:hidden;
+    height: 900px;
+}
+.modal-content img{
+    width: 250px;
+    height: 250px;
+}
+
+.Aceptar{
+    left: 0;
+    top: 5px;
+    color: #033649;
+}
+h4{
+    text-align: center;
+    color: #CDB380;
+}
+.boton{
+    background-color: #036564;
+}
+.page-footer{
+    background-color: #031634;
+}
+/*PAG CARRITO*/
+/*tabla*/
+.tabla{
+    background-color: #ffffff;
+}   
+#titulo_c{
+    color: #CDB380;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 100px;
+} 
+.monitor1{
+    position: relative;
+    width: 100px;
+    height: 90px;
+}
+/*Resumen*/
+.resumen{
+    color: aliceblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+   
+}
+.txt {
+    position: relative;
+    top: 80px;
+}
