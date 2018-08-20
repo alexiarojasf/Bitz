@@ -21,11 +21,30 @@ class Page extends Component{
         </head>
         <body>");
         if(isset($_SESSION['id_usuario'])){
+            if (isset($_SESSION['lapso'])) {
+                
+                $inactivo = 10; //Segundos de actividad de pantalla.
+                
+                //Calculamos tiempo de vida inactivo.
+                $lapsosesion = time() - $_SESSION['lapso'];
+                
+                //El lapso de la sesion sea mayor a el tiempo insertado en inactivo.
+                if ($lapsosesion > $inactivo) {
+                    //Destruimos sesión.
+                    session_destroy();
+                    Page::showMessage(3, "Sesión inactiva, vuelva a iniciar sesión", "../public/login.php");
+                    exit();
+                } else {
+                    //Activamos sesion
+                    $_SESSION['lapso'] = time();
+                }
+            }
            print("<header>
            <!--Nav-->
            <ul id='dropdown1' class='dropdown-content'>
             <li><a href='configurar_cuenta.php?id=$_SESSION[id_usuario]'>Editar Perfil</a></li>
             <li><a href='pedidos.php'>Mis pedidos</a></li>
+            <li><a href='cambiar_contrasena.php'>Cambiar contraseña</a></li>
             <li class='divider'></li>
             </ul>
            <nav>
@@ -95,6 +114,56 @@ class Page extends Component{
         <script type='text/javascript' src='../web/js/mijs.js'></script>
         <script type='text/javascript' src='../web/js/mijs_ad.js'></script>
         <script type='text/javascript' src='../web/js/scripts.js'></script>
+        <script>
+        function soloLetras(e){
+           key = e.keyCode || e.which;
+           tecla = String.fromCharCode(key).toLowerCase();
+           letras = ' áéíóúabcdefghijklmnñopqrstuvwxyz';
+           especiales = '8-37-39-46';
+    
+           tecla_especial = false
+           for(var i in especiales){
+                if(key == especiales[i]){
+                    tecla_especial = true;
+                    break;
+                }
+            }
+    
+            if(letras.indexOf(tecla)==-1 && !tecla_especial){
+                return false;
+            }
+        }
+    </script>
+    <script>
+    function valida(e){
+        tecla = (document.all) ? e.keyCode : e.which;
+    
+        //Tecla de retroceso para borrar, siempre la permite
+        if (tecla==8){
+            return true;
+        }
+            
+        // Patron de entrada, en este caso solo acepta numeros
+        patron =/[0-9]/;
+        tecla_final = String.fromCharCode(tecla);
+        return patron.test(tecla_final);
+    }
+    </script>
+    <script>
+    function valida2(e){
+        tecla = (document.all) ? e.keyCode : e.which;
+    
+        //Tecla de retroceso para borrar, siempre la permite
+        if (tecla==8){
+            return true;
+        }
+            
+        // Patron de entrada, en este caso solo acepta numeros
+        patron =/[0-9.]/;
+        tecla_final = String.fromCharCode(tecla);
+        return patron.test(tecla_final);
+    }
+    </script>
         <footer class='page-footer'>
 <div class='container'>
 	<div class='row'>

@@ -33,7 +33,7 @@
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <a href="recucontra.html">Ha olvidado su Contraseña?</a>
+                                <a href="recuperar.php">Ha olvidado su Contraseña?</a>
                             </div>
                         </div>
             </form>

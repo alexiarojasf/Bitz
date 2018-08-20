@@ -31,19 +31,8 @@
                                     <input id="direccion" type="text" class="validate" name="direccion" value="<?php print($usuario->getDireccion());?>">
                                     <label for="direccion">Dirección</label>
                                 </div>
-                                <div class="input-field col s12 m6 l5">
-                                    <div class="file-field input-field">
-                                        <div class="btn but-st-blue-moon but-rounded">
-                                            <span>Foto</span>
-                                            <input type="file">
-                                        </div>
-                                        <div class="file-path-wrapper">
-                                            <input class="file-path validate " type="text" name="foto">
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                            <div class="input-field col s12 m6 l6 ">
+                            <div class="input-field col s12 m6 l11">
                                 <button id="button-margin" class="btn waves-effect waves-light but-rounded but-st-blue-moon " type="submit" name="actualizar">Modificar
                                     <span>
                                         <i class="material-icons white-text right">check</i>
