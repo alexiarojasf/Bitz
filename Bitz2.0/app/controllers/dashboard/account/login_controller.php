@@ -13,6 +13,7 @@ try{
 							$_SESSION['usuario'] = $object->getAlias();
 							$_SESSION['correo_usu'] = $object->getCorreo();
 							$_SESSION['foto_usu'] = $object->getImagen();
+							$_SESSION['fecha_creacion'] = $object->getFechaHoy();
 							Page::showMessage(1, "Autenticación correcta", "../dashboard/menu_ad.php");
 						}else{ 
 							throw new Exception("Clave inexistente");

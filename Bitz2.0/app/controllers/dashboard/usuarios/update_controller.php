@@ -1,5 +1,7 @@
 <?php
 require_once("../../app/models/usuario.class.php");
+$hoy = date("Y-m-d");
+
 try{
     if(isset($_GET['id'])){
         $usuario = new Usuario;
@@ -19,6 +21,7 @@ try{
                                                 if($usuario->setDireccion($_POST['direccion'])){
                                                     if($usuario->setIdTipoUsuario($_POST['tipousu'])){
                                                         if($usuario->setImagen($_POST['foto'])){
+                                                            $usuario->setFechaHoy($hoy);
                                                 if($usuario->updateUsuario()){
                                                     Page::showMessage(1, "Usuario actualizado | Los cambios de imagen se visualizaran hasta el siguiente inicio de sesión ", "index.php");
                                                 }else{

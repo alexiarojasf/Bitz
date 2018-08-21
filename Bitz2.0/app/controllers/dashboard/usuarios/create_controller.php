@@ -1,5 +1,7 @@
 <?php
 require_once("../../app/models/usuario.class.php");
+$hoy = date("Y-m-d");
+
 try{
     $usuario = new Usuario;
     if(isset($_POST['crear'])){
@@ -9,32 +11,38 @@ try{
             if($usuario->setApellidos($_POST['apellido'])){
                 if($usuario->setTelefono($_POST['telefono'])){
                     if($_POST['clave1'] == $_POST['clave2']){
-                        if($usuario->setClave($_POST['clave1'])){
-                            if($usuario->setCorreo($_POST['correo'])){
-                                if($usuario->setDireccion($_POST['direccion'])){
-                                    if($usuario->setIdTipoUsuario($_POST['tipousu'])){
-                                        if($usuario->setImagen($_POST['foto'])){
-                                if($usuario->createUsuario()){
-                                    Page::showMessage(1, "Usuario creado", "index.php");
+                        if($_POST['usuario'] == $_POST['clave1']){
+                            throw new Exception("La contraseña no puede ser igual al usuario");
+                        }
+                        else{
+                            if($usuario->setClave($_POST['clave1'])){
+                                if($usuario->setCorreo($_POST['correo'])){
+                                    if($usuario->setDireccion($_POST['direccion'])){
+                                        if($usuario->setIdTipoUsuario($_POST['tipousu'])){
+                                            if($usuario->setImagen($_POST['foto'])){
+                                                $usuario->setFechaHoy($hoy);
+                                                if($usuario->createUsuario()){
+                                                    Page::showMessage(1, "Usuario creado", "index.php");
+                                                }else{
+                                                    throw new Exception(Database::getException());
+                                                    Page::showMessage(1, "Fallo");
+                                                }
+                                            }else{
+                                                throw new Exception("No agrego la foto");
+                                            }
+                                        }else{
+                                            throw new Exception("No agrego el tipo");
+                                        }
+                                    }else{
+                                        throw new Exception("No agrego la direccion");
+                                    }
                                 }else{
-                                    throw new Exception(Database::getException());
-                                    Page::showMessage(1, "Fallo");
+                                    throw new Exception("Correo incorrecto");
                                 }
-                            }else{
-                                throw new Exception("No agrego la foto");
-                            }
-                            }else{
-                                throw new Exception("No agrego el tipo");
-                            }
-                        }else{
-                            throw new Exception("No agrego la direccion");
-                        }
-                         }else{
-                            throw new Exception("Correo incorrecto");
-                        }
                             }else{
                                 throw new Exception("Clave menor a 6 caracteres");
                             }
+                        }
                         }else{
                             throw new Exception("Claves diferentes");
                         }

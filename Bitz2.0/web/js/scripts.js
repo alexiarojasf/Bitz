@@ -2,6 +2,7 @@ $(document).ready(function(){
   $('.modal').modal();
 });
 
+
 //-- Script de Slider -->
 $(document).ready(function(){
 $('.slider').slider({full_width: true});

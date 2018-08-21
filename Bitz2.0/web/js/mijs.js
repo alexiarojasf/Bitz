@@ -6,6 +6,5 @@
         $('#modal1').modal('close');
         $('ul.tabs').tabs();
       });
-
-      
     
+     
