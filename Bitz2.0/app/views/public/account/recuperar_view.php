@@ -19,9 +19,9 @@
                                 </div>
                             </div>
                             <div class="input-field col s12 m6 l8">
-                                <button id="button-margin" class="btn waves-effect waves-light but-rounded but-st-blue-moon " type="submit" name="actualizar">Enviar
+                                <button id="button-margin" class="btn waves-effect waves-light but-rounded but-st-blue-moon " type="submit" name="enviar">Enviar
                                     <span>
-                                        <i class="material-icons white-text right">check</i>
+                                        <i class="material-icons white-text right">send</i>
                                     </span>
                                 </button>
                                 <a id="button-margin" class="waves-effect waves-light btn but-rounded but-st-blue-moon" href="index.php">

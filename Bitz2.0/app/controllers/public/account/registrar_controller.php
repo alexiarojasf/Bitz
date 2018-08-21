@@ -7,7 +7,7 @@ try{
       $_POST = $usuario->validateForm($_POST);
       if($usuario->setAlias($_POST['usuario'])){
         if($usuario->setCorreo($_POST['correo'])){ 
-            if($_POST['clave1'] == $_POST['clave2']){ 
+            if($_POST['clave1'] == $_POST['clave2']){ 4
                 if($usuario->setClave($_POST['clave1'])){ 
                     if($usuario->createUsuario()){
                         Page::showMessage(1, "Usuario creado", "index.php");
