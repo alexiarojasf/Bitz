@@ -1,6 +1,7 @@
 <?php
 require_once("../app/models/usuario.class.php");
 try{
+    $_SESSION['lapso'] = time();
     if(isset($_GET['id'])){
         $usuario = new Usuario;
         if($usuario->setId($_GET['id'])){
@@ -11,17 +12,13 @@ try{
                             if($usuario->setApellidos($_POST['apellido'])){
                                 if($usuario->setTelefono($_POST['telefono'])){
                                     if($usuario->setCorreo($_POST['correo'])){
-                                        if($usuario->setDireccion($_POST['direccion'])){
-                                            if($usuario->setImagen($_POST['foto'])){
+                                        if($usuario->setDireccion($_POST['direccion'])){   
                                     if($usuario->updateUsuarios()){
-                                        Page::showMessage(1, "Usuario actualizado", "index.php");
+                                        Page::showMessage(1, "Usuario actualizado, vuelva a iniciar sesión para ver los cambios", "index.php");
                                     }else{
                                         throw new Exception(Database::getException());
                                         Page::showMessage(1, "Fallo");
                                     }
-                                }else{
-                                    throw new Exception("No agrego la foto");
-                                }
                             }else{
                                 throw new Exception("No agrego la direccion");
                             }

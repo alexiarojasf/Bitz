@@ -201,10 +201,11 @@ class Usuario extends Validator{
 	}	
 	public function changePassword(){
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
-		$sql = "UPDATE usuarios SET clave_usuario = ? WHERE id_usuario = ?";
+		$sql = "UPDATE usuario SET contrasena = ? WHERE id_usuario = ?";
 		$params = array($hash, $this->id);
 		return Database::executeRow($sql, $params);
 	}
+
 	public function logOut(){
 		return session_destroy();
 	}
@@ -277,6 +278,25 @@ class Usuario extends Validator{
 		$sql = "SELECT id_factura, id_producto, nombre_prod, cantidad_producto FROM detalle_venta INNER JOIN factura USING(id_factura) INNER JOIN producto USING(id_producto) WHERE factura.id_usuario = ? ORDER BY factura.id_factura ASC";
 		$params = array($this->id);
 		return Database::getRows($sql, $params);
+	}
+	public function VerificarCorreo(){
+		$sql = "SELECT id_usuario, nombre_usu FROM usuario WHERE correo_usu = ?";
+		$params = array($this->correo);
+		$data = Database::getRow($sql, $params);
+		if($data){
+			$this->id = $data['id_usuario'];
+			$this->nombres = $data['nombre_usu'];
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function RestablecerContra($contra){
+		$hash = password_hash($contra, PASSWORD_DEFAULT);
+		$sql = "UPDATE usuario SET contrasena = ? WHERE correo_usu = ?";
+		$params = array($hash, $this->correo);
+		return Database::executeRow($sql, $params);
 	}
 }
 ?>
