@@ -9,16 +9,16 @@
         <h2>Inicio de sesión</h2>
         <br>
         <div class="row">
-            <form class="col s12" method='post'>
+            <form class="col s12" method='post' autocomplete="off">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input placeholder="Ej. Ernesto Lopez" type="text" id="alias" name="alias" class="validate" value='<?php print($object->getAlias()) ?>' required/>
+                        <input placeholder="Ej. Ernesto Lopez" type="text" id="alias" name="alias" onkeypress="return check(event)" class="validate"  oncopy="return false" onpaste="return false" value='<?php print($object->getAlias()) ?>' required/>
                         <label for="alias">Usuario</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input placeholder="Ej. 123" id="clave" name='clave' type="password" class="validate" value='<?php print($object->getClave()) ?>' required/>
+                        <input placeholder="Ej. 123" id="clave" name='clave' type="password" class="validate"  oncopy="return false" onpaste="return false" value='<?php print($object->getClave()) ?>' required/>
                         <label for="clave">Contraseña</label>
                     </div>
                 </div>

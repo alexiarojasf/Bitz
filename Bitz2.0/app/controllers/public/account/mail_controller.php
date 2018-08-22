@@ -23,12 +23,11 @@ try{
                 
                     $mail = new PHPMailer;
 
-                    $mail->SMTPDebug = 2;
                     $mail->isSMTP();
                     $mail->Host = 'smtp.gmail.com';
                     $mail->SMTPAuth = true;
-                    $mail->Username = 'kidszonericaldone@gmail.com';
-                    $mail->Password = 'Kidszone123';
+                    $mail->Username = 'expobecas@gmail.com';
+                    $mail->Password = 'Expobecas2018';
                     $mail->SMTPSecure = 'ssl'; 
                     $mail->Port = 465;
                     $mail->setFrom('expobecas@gmail.com', 'Bitz');
@@ -40,9 +39,6 @@ try{
                     <head>
                     <meta charset="utf-8">
                     <style type ="txt/css">
-                    h1{
-                        color: #1A9FBF;
-                    }
                     #tex{
                         color: #63666A;
                         font-size: 11px;
@@ -54,12 +50,11 @@ try{
                     </style>
                     </head>
                     <body>
-                    <h1> Recuperación de contraseña </h1> <p>Hola <strong>'.$nombre.' </strong>nos has solicitado restablecer tu clave. 
-                    </p> <p> Para ingresar utiliza la nueva clave: <strong>'.$nueva.'</strong> <p>Recuerda cambiar de contraseña al acceder a tu cuenta.</p> <p id="tex"> Si no haz solicitado recuperar 
-                    tu contraseña solo ignora este mensaje </p> <br> <p> <strong> Te saluda cordialmente, </strong> </p> <p> Kidszone. </p>
-                    <p> ------------------- </p>
-                    <p class="l" ><strong> K I D S Z O N E </strong></p>
-                    <p class="l"> <strong> "Its all about imagination" </strong></p>
+                    <h1> Hola: '.$nombre.' nos has solicitado restablecer tu clave.</h1>
+                    <p> Su contraseña fue cambiada por una temporal, esta es su nueva clave: <strong>'.$nueva.'</strong> </p> 
+                    <p>Recuerda cambiar tu contraseña cuando accedas a tu cuenta, colocando la contraseña temporal <br>
+                    en los campos de contraseña actual.</p> <p id="tex"> Si no haz solicitado recuperar 
+                    tu contraseña solo ignora este mensaje </p> <br> <p> <strong> Te saluda cordialmente, </strong> </p> <p> BitzLab. </p>
                     ';
                      
 
@@ -67,7 +62,7 @@ try{
                         throw new Exception("No se pudo". $mail->ErrorInfo);
                     }
                     else{
-                        Page::showMessage(1, "Correo enviado", "acceder.php");
+                        Page::showMessage(1, "Correo enviado", "../public/login.php");
                     }
 						}
 							

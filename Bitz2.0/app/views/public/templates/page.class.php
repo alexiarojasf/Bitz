@@ -23,7 +23,7 @@ class Page extends Component{
         if(isset($_SESSION['id_usuario'])){
             if (isset($_SESSION['lapso'])) {
                 
-                $inactivo = 10; //Segundos de actividad de pantalla.
+                $inactivo = 1200; //Segundos de actividad de pantalla.
                 
                 //Calculamos tiempo de vida inactivo.
                 $lapsosesion = time() - $_SESSION['lapso'];
@@ -133,6 +133,21 @@ class Page extends Component{
                 return false;
             }
         }
+    </script>
+    <script>
+    function check(e) {
+        tecla = (document.all) ? e.keyCode : e.which;
+    
+        //Tecla de retroceso para borrar, siempre la permite
+        if (tecla == 8) {
+            return true;
+        }
+    
+        // Patron de entrada, en este caso solo acepta numeros y letras
+        patron = /[A-Za-z0-9]/;
+        tecla_final = String.fromCharCode(tecla);
+        return patron.test(tecla_final);
+    }
     </script>
     <script>
     function valida(e){

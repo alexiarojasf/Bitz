@@ -323,5 +323,11 @@ class Usuario extends Validator{
 		$params = array($hash, $this->correo);
 		return Database::executeRow($sql, $params);
 	}
+	public function FechaCreacion(){
+		$sql = "UPDATE usuario SET fecha_creacion = ? WHERE id_usuario = ?";
+		$fecha1= date("Y-m-d");
+		$params = array($fecha1,  $this->id);
+		return Database::executeRow($sql, $params);
+	}
 }
 ?>

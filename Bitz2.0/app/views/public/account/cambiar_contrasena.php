@@ -5,16 +5,16 @@
                     <span class="card-title pad-top-conv ">Cambiar contraseña</span>
                     <div class="divider"></div>
                     <div class="row">
-                        <form method="POST" class="col s12 m12 l12">
+                        <form method="POST" class="col s12 m12 l12" autocomplete="off">
                             <div class="row">
                             <label for="usuario">Contraseña actual</label>
                             <div class="divider"></div>
                                 <div class="input-field col s12 m5 l6">
-                                    <input id="contraactual" type="password" class="validate" name="contraactual">
+                                    <input id="contraactual" type="password" class="validate" name="contraactual"  oncopy="return false" onpaste="return false" >
                                     <label for="contraactual">Contraseña</label>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="contraactual2" type="password" class="validate" name="contraactual2">
+                                    <input id="contraactual2" type="password" class="validate" name="contraactual2"  oncopy="return false" onpaste="return false" >
                                     <label for="contraactual2">Repita la contraseña</label>
                                 </div>
                                 </div>
@@ -22,11 +22,11 @@
                                 <label for="usuario">Contraseña nueva</label>
                                 <div class="divider"></div>
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="contranueva" type="password" class="validate" name="contranueva">
+                                    <input id="contranueva" type="password" class="validate" name="contranueva"  oncopy="return false" onpaste="return false" >
                                     <label for="contranueva">Contraseña</label>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="contranueva2" type="password" class="validate" name="contranueva2">
+                                    <input id="contranueva2" type="password" class="validate" name="contranueva2"  oncopy="return false" onpaste="return false" >
                                     <label for="contranueva2">Repita la contraseña</label>
                                 </div>
                             </div>
