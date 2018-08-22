@@ -4,7 +4,57 @@ require_once("../../app/helpers/validator.class.php");
 require_once("../../app/helpers/component.class.php");
 require("../../app/models/factura.class.php");
 class Page extends Component{
+
+    public static function templateHeaderContra($title)
+    {
+        session_id("usuario");
+        session_start();
+		ini_set("date.timezone","America/El_Salvador");
+		print("
+			
+        <!DOCTYPE html>
+        <html>
+        <head>
+
+        
+        <link rel='shortcut icon' href='../../web/images/favicon.ico' type='image/x-icon'>
+        
+        <link type='text/css' rel='stylesheet' href='../../web/css/materialize.css' media='screen,projection'/>
+        
+        <link type='text/css' rel='stylesheet' href='../../web/css/gradient-buttons.css'/>
+                
+        <link rel='stylesheet' href='../../web/css/style.css'>
+
+        <link rel='stylesheet' type='text/css' href='../../web/css/datatables.min.css'>
+        
+        <script type='text/javascript' src='../../web/js/sweetalert.min.js'></script>
+
+        <script type='text/javascript' src='../../web/js/jquery-3.3.1.min.js'></script>
+
+        <script type='text/javascript' src='../../web/js/chart.js'></script>
+
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+        <title>$title</title>
+        </head>
+        <body background='img/cover_datos.png' alt='fondo' id='cover_datos'>");
+        
+            print("
+				<header class='navbar-fixed'>
+                <nav>
+                <div class='nav-wrapper'>
+                  <a href='#!' class='brand-logo center'>$title</a>
+                  <a href='#' data-activates='slide-out' class='button-collapse'><i class='material-icons white-text'>menu</i></a>
+                  <ul class='right hide-on-med-and-down'>
+                  </ul>
+                </div>
+              </nav>
+				</header>
+				<main class='container'>
+			");
+    }
+
 	public static function templateHeader($title){
+        session_id("Admin");
 		session_start();
 		ini_set("date.timezone","America/El_Salvador");
 		print("

@@ -7,6 +7,8 @@ class Usuario extends Validator{
 	private $correo = null;
 	private $alias = null;
 	private $clave = null;
+	private $newclave = null;
+	private $antiguaclave = null;
 	private $telefono = null;
 	private $foto = null;
 	private $direccion = null;
@@ -173,6 +175,28 @@ class Usuario extends Validator{
 	public function getClave(){
 		return $this->clave;
 	}
+	public function setClaveAntigua($value){
+		if($this->validatePassword($value)){
+			$this->antiguaclave = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getClaveAntigua(){
+		return $this->antiguaclave;
+	}
+	public function setClaveNueva($value){
+		if($this->validatePassword($value)){
+			$this->newclave = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getClaveNueva(){
+		return $this->newclave;
+	}
 
 	//Métodos para manejar la sesión del usuario
 	public function checkAlias(){
@@ -199,10 +223,12 @@ class Usuario extends Validator{
 			return false;
 		}
 	}	
+
 	public function changePassword(){
+		$hoy = date("Y-m-j");
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
-		$sql = "UPDATE usuario SET contrasena = ? WHERE id_usuario = ?";
-		$params = array($hash, $this->id);
+		$sql = "UPDATE usuario SET contrasena = ? , fecha_creacion = ? WHERE id_usuario = ?";
+		$params = array($hash,$hoy ,$this->id);
 		return Database::executeRow($sql, $params);
 	}
 
@@ -212,7 +238,7 @@ class Usuario extends Validator{
 
 	//Metodos para manejar el CRUD
 	public function getUsuarios(){
-		$sql = "SELECT u.id_usuario,u.usuario,u.nombre_usu,u.apellido_usu,u.telefono_usu,u.correo_usu,u.direccion_usu,u.fecha_creacion,t.nombre_tipo_usu FROM usuario as u INNER JOIN tipo_usuario as t ON u.tipo_usu = t.id_tipo_usu WHERE id_tipo_usu = 1 || id_tipo_usu = 2";
+		$sql = "SELECT u.id_usuario,u.usuario,u.nombre_usu,u.contrasena,u.apellido_usu,u.telefono_usu,u.correo_usu,u.direccion_usu,u.fecha_creacion,t.nombre_tipo_usu FROM usuario as u INNER JOIN tipo_usuario as t ON u.tipo_usu = t.id_tipo_usu WHERE id_tipo_usu = 1 || id_tipo_usu = 2";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
@@ -252,7 +278,6 @@ class Usuario extends Validator{
 			$this->direccion = $usuario['direccion_usu'];
 			$this->foto = $usuario['foto_usu'];
 			$this->tipousu = $usuario['tipo_usu'];
-			$this->clave = $usuario['contrasena'];
 			return true;
 		}else{
 			return null;
@@ -261,7 +286,7 @@ class Usuario extends Validator{
 	public function updateUsuario(){
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
 		$sql = "UPDATE usuario SET usuario = ?,nombre_usu = ?, apellido_usu = ?,telefono_usu = ?, contrasena = ?,correo_usu = ?, direccion_usu = ?,foto_usu = ?, tipo_usu = ?, fecha_creacion = ? WHERE id_usuario = ?";
-		$params = array($this->alias,$this->nombres, $this->apellidos,$this->telefono, $hash, $this->correo, $this->direccion,  $this->foto, $this->tipousu,$this->id,$this->fechadehoy);
+		$params = array($this->alias,$this->nombres, $this->apellidos,$this->telefono, $hash, $this->correo, $this->direccion,  $this->foto, $this->tipousu,$this->fechadehoy,$this->id);
 		return Database::executeRow($sql, $params);
 	}
 	public function updateUsuarios(){
