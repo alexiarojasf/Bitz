@@ -33,33 +33,6 @@
 </div>
 </div>
 </div>    
-
-<div class='row center'>
-            <div class='row'>
-                <form class='col s12 m4 l8'>
-                    <h3 class='header white-text'>Comentario</h3>
-                    <div class='row'>
-                        <div class='input-field col s12'>
-                            <i class='material-icons prefix'>assignment</i>
-                            <textarea id='textarea1' class='materialize-textarea'></textarea>
-                            <label for='textarea1'>Opinion</label>
-                        </div>
-                        <button class='btn orange darken-1 darken-3 waves-effect waves-orange' type='submit' name='action'>Enviar
-                        <i class='material-icons right'>send</i>
-                    </button>
-                    </div>
-                </form>
-
-                <div class='col s12 m7 l7'>
-                    <h2 class='header'>Comentarios</h2>
-                    <!--1-->
-                    <div class='card horizontal'>
-                        <div class='card-stacked'>
-                            <div class='card-content'>
-                                <p>Buenos Productos.</p>
-                            </div>
-                        </div>
-                    </div>
                
 ");                      
 }

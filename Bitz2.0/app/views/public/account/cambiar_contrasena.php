@@ -5,7 +5,7 @@
                     <span class="card-title pad-top-conv ">Cambiar contraseña</span>
                     <div class="divider"></div>
                     <div class="row">
-                        <form method="POST" class="col s12 m12 l12">
+                        <form method="POST" class="col s12 m12 l12" autocomplete="off">
                             <div class="row">
                             <label for="usuario">Contraseña actual</label>
                             <div class="divider"></div>

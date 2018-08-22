@@ -5,7 +5,7 @@
                     <span class="card-title pad-top-conv ">Recuperar cuenta</span>
                     <div class="divider"></div>
                     <div class="row">
-                        <form method="POST" class="col s12 m12 l12 offset-l2">
+                        <form method="POST" class="col s12 m12 l12 offset-l2" autocomplete="off">
                             <div class="row">
                                 <div class="input-field col s12 m5 l8">
                                     <input id="correo" type="text" class="validate" name="correo">

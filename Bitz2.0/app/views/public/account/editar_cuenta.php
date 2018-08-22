@@ -5,7 +5,7 @@
                     <span class="card-title pad-top-conv ">Actualizando mi información</span>
                     <div class="divider"></div>
                     <div class="row">
-                        <form method="POST" class="col s12 m12 l12">
+                        <form method="POST" class="col s12 m12 l12" autocomplete="off">
                             <div class="row">
                                 <div class="input-field col s12 m5 l5">
                                     <input id="usuario" type="text" class="validate" name="usuario" value="<?php print($usuario->getAlias());?>">

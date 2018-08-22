@@ -9,7 +9,7 @@
         <h2>Inicio de sesión</h2>
         <br>
         <div class="row">
-            <form class="col s12" method='post'>
+            <form class="col s12" method='post' autocomplete="off">
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Ej. Ernesto Lopez" type="text" id="alias" name="alias" class="validate" value='<?php print($object->getAlias()) ?>' required/>

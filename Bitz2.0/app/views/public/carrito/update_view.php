@@ -4,7 +4,7 @@
        print("
 <div class='container cantidad'>
 	<h4  class='cyan-text center'>Actualizar cantidad del producto </h4>
-<form method='post' enctype='multipart/form-data'>
+<form method='post' enctype='multipart/form-data' autocomplete='off'>
    
         <div class='input-field col s12 m6'>
                   <i class='material-icons prefix'>shopping_cart</i>
