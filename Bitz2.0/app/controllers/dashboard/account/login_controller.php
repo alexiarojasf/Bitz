@@ -14,6 +14,8 @@ try{
 							$_SESSION['correo_usu'] = $object->getCorreo();
 							$_SESSION['foto_usu'] = $object->getImagen();
 							$_SESSION['fecha_creacion'] = $object->getFechaHoy();
+							$_SESSION['tipo_usu'] = $object->getIdTipoUsuario();
+							$tipousu = $_SESSION['tipo_usu'];
 							$fechaUsu = $_SESSION['fecha_creacion'];
 							$fechaLimite = strtotime('+90 day', strtotime($fechaUsu));
 							$fechaLimite = date ('Y-m-j',$fechaLimite);

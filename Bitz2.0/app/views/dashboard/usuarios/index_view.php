@@ -27,6 +27,10 @@
                                 <table class="striped responsive-table" id="tablaScroll" class="striped display" data-order='[[ 1, "asc" ]]' data-page-length='10'>
                                         <thead>
                                             <tr>
+                                                <?php
+                                                $tipousu = $_SESSION['tipo_usu'];
+                                                if($tipousu == 1){
+                                                print("
                                                 <th>Usuario</th>
                                                 <th>Nombre</th>
                                                 <th>Apellido</th>
@@ -35,27 +39,58 @@
                                                 <th>Direccion</th>
                                                 <th>Tipo de usuario</th>
                                                 <th>Acciones</th>
+                                                    ");
+                                                }else if ($tipousu == 2){
+                                                print("
+                                                <th>Usuario</th>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th>Telefono</th>
+                                                <th>Correo</th>
+                                                <th>Direccion</th>
+                                                <th>Tipo de usuario</th>
+                                                    "); 
+                                                }
+                                                ?>
                                             </tr>
                                         </thead>
 
                                         <tbody>
                                         <?php
-                                        foreach($data as $row){
-                                            print("
-                                            <tr>
-                                                <td>$row[usuario]</td>
-                                                <td>$row[nombre_usu]</td>
-                                                <td>$row[apellido_usu]</td>
-                                                <td>$row[telefono_usu]</td>
-                                                <td>$row[correo_usu]</td>
-                                                <td>$row[direccion_usu]</td>
-                                                <td>$row[nombre_tipo_usu]</td>
-                                                <td>
-                                                    <a href='update.php?id=$row[id_usuario]' class='blue-text'><img src='../../web/img/edit.png'></a>
-                                                    <a href='delete.php?id=$row[id_usuario]' class='red-text'><img src='../../web/img/eraser.png'></a>
-                                                </td>
-                                            </tr>
-                                            ");
+                                        $tipousu = $_SESSION['tipo_usu'];
+                                        if($tipousu == 1){
+                                            foreach($data as $row){
+                                                print("
+                                                <tr>
+                                                    <td>$row[usuario]</td>
+                                                    <td>$row[nombre_usu]</td>
+                                                    <td>$row[apellido_usu]</td>
+                                                    <td>$row[telefono_usu]</td>
+                                                    <td>$row[correo_usu]</td>
+                                                    <td>$row[direccion_usu]</td>
+                                                    <td>$row[nombre_tipo_usu]</td>
+                                                    <td>
+                                                        <a href='update.php?id=$row[id_usuario]' class='blue-text'><img src='../../web/img/edit.png'></a>
+                                                        <a href='delete.php?id=$row[id_usuario]' class='red-text'><img src='../../web/img/eraser.png'></a>
+                                                    </td>
+                                                </tr>
+                                                ");
+                                            }
+                                        }
+                                        else if($tipousu == 2){
+                                            foreach($data as $row){
+                                                print("
+                                                <tr>
+                                                    <td>$row[usuario]</td>
+                                                    <td>$row[nombre_usu]</td>
+                                                    <td>$row[apellido_usu]</td>
+                                                    <td>$row[telefono_usu]</td>
+                                                    <td>$row[correo_usu]</td>
+                                                    <td>$row[direccion_usu]</td>
+                                                    <td>$row[nombre_tipo_usu]</td>
+                                                </tr>
+                                                ");
+                                            }
                                         }
                                         ?>
                                         </tbody>

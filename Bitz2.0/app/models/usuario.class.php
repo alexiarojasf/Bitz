@@ -200,7 +200,7 @@ class Usuario extends Validator{
 
 	//Métodos para manejar la sesión del usuario
 	public function checkAlias(){
-		$sql = "SELECT id_usuario,correo_usu,foto_usu,fecha_creacion FROM usuario WHERE usuario = ?";
+		$sql = "SELECT id_usuario,correo_usu,foto_usu,fecha_creacion,tipo_usu FROM usuario WHERE usuario = ?";
 		$params = array($this->alias);
 		$data = Database::getRow($sql, $params);
 		if($data){
@@ -208,6 +208,7 @@ class Usuario extends Validator{
 			$this->correo = $data['correo_usu'];
 			$this->foto = $data['foto_usu'];
 			$this->fechadehoy = $data['fecha_creacion'];
+			$this->tipousu = $data['tipo_usu'];
 			return true;
 		}else{
 			return false;
@@ -238,7 +239,7 @@ class Usuario extends Validator{
 
 	//Metodos para manejar el CRUD
 	public function getUsuarios(){
-		$sql = "SELECT u.id_usuario,u.usuario,u.nombre_usu,u.contrasena,u.apellido_usu,u.telefono_usu,u.correo_usu,u.direccion_usu,u.fecha_creacion,t.nombre_tipo_usu FROM usuario as u INNER JOIN tipo_usuario as t ON u.tipo_usu = t.id_tipo_usu WHERE id_tipo_usu = 1 || id_tipo_usu = 2";
+		$sql = "SELECT u.id_usuario,u.usuario,u.nombre_usu,u.contrasena,u.apellido_usu,u.telefono_usu,u.correo_usu,u.direccion_usu,u.fecha_creacion,u.tipo_usu,t.nombre_tipo_usu FROM usuario as u INNER JOIN tipo_usuario as t ON u.tipo_usu = t.id_tipo_usu WHERE id_tipo_usu = 1 || id_tipo_usu = 2";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}

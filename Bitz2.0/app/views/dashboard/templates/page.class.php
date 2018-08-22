@@ -84,7 +84,9 @@ class Page extends Component{
         <body background='img/cover_datos.png' alt='fondo' id='cover_datos'>");
 
         if(isset($_SESSION['id_usuario'])){
-            print("<header>
+            $tipousu = $_SESSION['tipo_usu'];
+            if($tipousu == 1){
+                print("<header>
             <div class='navbar-fixed'>
                     <nav>
                       <div class='nav-wrapper'>
@@ -101,7 +103,7 @@ class Page extends Component{
                <div class='background'>
                <img src='../../web/images/azulito.jpg'>
                </div>
-              <a href='#!user'><img class='circle ' src='../../web/images/$_SESSION[foto_usu]'></a>
+              <a href='#!user'><img class='circle ' src='../../web/images/fotos_usu/$_SESSION[foto_usu]'></a>
               <a href='#!name'><span class='white-text name '>$_SESSION[usuario]</span></a><a href='../usuarios/update.php?id=$_SESSION[id_usuario]' class='white-text'>Editar perfil</a>
               <a href='#!email'><span class='white-text email '>$_SESSION[correo_usu]</span></a>
             </div></li>
@@ -114,7 +116,39 @@ class Page extends Component{
           </ul>
             </header>
             <main>
-            ");        
+            ");
+            }else if($tipousu == 2 ){
+                print("<header>
+            <div class='navbar-fixed'>
+                    <nav>
+                      <div class='nav-wrapper'>
+                        <a href='#!' class='brand-logo center'>$title</a>
+                        <a href='#' data-activates='slide-out' class='button-collapse'><i class='material-icons white-text'>format_list_bulleted</i></a>
+                        <ul class='right hide-on-med-and-down'>
+                        </ul>
+                      </div>
+                    </nav>
+                  </div>
+                  
+        <ul id='slide-out' class='side-nav fixed indigo darken-4'>
+            <li><div class='user-view'>
+               <div class='background'>
+               <img src='../../web/images/azulito.jpg'>
+               </div>
+              <a href='#!user'><img class='circle ' src='../../web/images/fotos_usu/$_SESSION[foto_usu]'></a>
+              <a href='#!name'><span class='white-text name '>$_SESSION[usuario]</span></a><a href='../usuarios/update.php?id=$_SESSION[id_usuario]' class='white-text'>Editar perfil</a>
+              <a href='#!email'><span class='white-text email '>$_SESSION[correo_usu]</span></a>
+            </div></li>
+            <li><a href='../dashboard/menu_ad.php' class='white-text'><i class='material-icons right white-text'>home</i>Dashboard</a></li>
+            <li><a href='../usuarios/index.php' class='white-text'><i class='material-icons right white-text'>account_circle</i>Usuarios</a></li>
+            <li><a href='../productos/index.php' class='white-text'><i class='material-icons right white-text'>important_devices</i>Productos</a></li>
+            <li><a href='../account/logout.php' class='white-text'><i class='material-icons right white-text'>exit_to_app</i>Cerrar sesión</a></li>
+          </ul>
+            </header>
+            <main>
+            ");
+
+            }         
         }else{
             print("
 				<header class='navbar-fixed'>
