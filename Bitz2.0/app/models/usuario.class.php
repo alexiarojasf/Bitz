@@ -226,7 +226,7 @@ class Usuario extends Validator{
 
 	public function changePassword(){
 		$hoy = date("Y-m-j");
-		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
+		$hash = password_hash($this->newclave, PASSWORD_DEFAULT);
 		$sql = "UPDATE usuario SET contrasena = ? , fecha_creacion = ? WHERE id_usuario = ?";
 		$params = array($hash,$hoy ,$this->id);
 		return Database::executeRow($sql, $params);
