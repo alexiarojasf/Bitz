@@ -23,7 +23,7 @@ class Page extends Component{
         if(isset($_SESSION['id_usuario'])){
             if (isset($_SESSION['lapso'])) {
                 
-                $inactivo = 300; //Segundos de actividad de pantalla.
+                $inactivo = 1200; //Segundos de actividad de pantalla.
                 
                 //Calculamos tiempo de vida inactivo.
                 $lapsosesion = time() - $_SESSION['lapso'];
