@@ -9,19 +9,19 @@
                         <form method="POST" class="col s12 m12 l12">
                             <div class="row">
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="usuario" type="text" class="validate" name="nombre">
+                                    <input id="usuario" type="text" autocomplete = 'off' class="validate" name="nombre">
                                     <label for="usuario">Nuevo Producto</label>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="nombre" type="text" class="validate" name="descripcion" onkeypress="return soloLetras(event)">
+                                    <input id="nombre" type="text" autocomplete = 'off' class="validate" name="descripcion" onkeypress="return soloLetras(event)">
                                     <label for="nombre">Descripcion</label>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="apellido" type="text" class="validate" name="cantidad" onkeypress="return valida(event)">
+                                    <input id="apellido" type="text" autocomplete = 'off' class="validate" name="cantidad" onkeypress="return valida(event)">
                                     <label for="apellido">Cantidad</label>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="telefono" type="text" class="validate" name="precio" onkeypress="return valida2(event)">
+                                    <input id="telefono" type="text" autocomplete = 'off' class="validate" name="precio" onkeypress="return valida2(event)">
                                     <label for="telefono">Precio</label>
                                 </div>
                                 <div class='input-field col s12 m6 l6'>
@@ -37,7 +37,7 @@
                                         ?>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="contra1" type="text" class="validate" name="modelo">
+                                    <input id="contra1" type="text" autocomplete = 'off' class="validate" name="modelo">
                                     <label for="contra1">Modelo</label>
                                 </div>
                                 <div class='input-field col s12 m6 l6'>

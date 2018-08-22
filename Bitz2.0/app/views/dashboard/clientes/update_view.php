@@ -9,7 +9,7 @@
                         <form method="POST" class="col s12 m12 l12">
                             <div class="row">
                                 <div class="input-field col s12 m6 l6">
-                                    <input name="nombre" id="first_name" type="text" class="validate" value="<?php print($proveedor->getNombre()); ?>" required>
+                                    <input name="nombre" id="first_name" type="text" autocomplete = 'off' class="validate" value="<?php print($proveedor->getNombre()); ?>" required>
                                     <label for="first_name">Proveedor</label>
                                 </div>
 

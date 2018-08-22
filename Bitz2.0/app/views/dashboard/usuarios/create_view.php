@@ -9,35 +9,35 @@
                         <form method="POST" class="col s12 m12 l12">
                             <div class="row">
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="usuario" type="text" class="validate" name="usuario" value="<?php print($usuario->getAlias());?>">
+                                    <input id="usuario" type="text" autocomplete = "off" class="validate" name="usuario" value="<?php print($usuario->getAlias());?>">
                                     <label for="usuario">Usuario</label>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="nombre" type="text" class="validate" name="nombre" value="<?php print($usuario->getNombres())?>" onkeypress="return soloLetras(event)">
+                                    <input id="nombre" type="text" autocomplete = "off" class="validate" name="nombre" value="<?php print($usuario->getNombres())?>" onkeypress="return soloLetras(event)">
                                     <label for="nombre">Nombres</label>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="apellido" type="text" class="validate" name="apellido" value="<?php print($usuario->getApellidos())?>" onkeypress="return soloLetras(event)">
+                                    <input id="apellido" type="text" autocomplete = "off" class="validate" name="apellido" value="<?php print($usuario->getApellidos())?>" onkeypress="return soloLetras(event)">
                                     <label for="apellido">Apellidos</label>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="telefono" type="text" class="validate" name="telefono" value="<?php print($usuario->getTelefono())?>"  data-length="8" maxlength="8" onkeypress="return valida(event)">
+                                    <input id="telefono" type="text" autocomplete = "off" class="validate" name="telefono" value="<?php print($usuario->getTelefono())?>"  data-length="8" maxlength="8" onkeypress="return valida(event)">
                                     <label for="telefono">Teléfono</label>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="contra1" type="password" class="validate" name="clave1"  value="">
+                                    <input id="contra1" type="password" autocomplete = "off" class="validate" name="clave1"  value="">
                                     <label for="contra1">Contraseña</label>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="contra2" type="password" class="validate" name="clave2" value="">
+                                    <input id="contra2" type="password" autocomplete = "off" class="validate" name="clave2" value="">
                                     <label for="contra2">Repite contraseña</label>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="correo" type="email" class="validate" name="correo" value="<?php print($usuario->getCorreo())?>">
+                                    <input id="correo" type="email" autocomplete = "off" class="validate" name="correo" value="<?php print($usuario->getCorreo())?>">
                                     <label for="correo">Correo</label>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
-                                    <input id="direccion" type="text" class="validate" name="direccion" value="<?php print($usuario->getDireccion())?>">
+                                    <input id="direccion" type="text" autocomplete = "off" class="validate" name="direccion" value="<?php print($usuario->getDireccion())?>">
                                     <label for="direccion">Dirección</label>
                                 </div>
                                 <div class='input-field col s12 m6 l6'>

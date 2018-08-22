@@ -9,7 +9,7 @@
                         <form method="POST" class="col s12 m12 l12">
                             <div class="row">
                                 <div class="input-field col s12 m6 l6">
-                                    <input name="nombre" id="first_name" type="text" class="validate" required>
+                                    <input name="nombre" id="first_name" autocomplete = 'off' type="text" class="validate" required>
                                     <label for="first_name">Nueva categoria</label>
                                 </div>
 

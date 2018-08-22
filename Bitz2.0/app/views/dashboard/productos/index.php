@@ -10,7 +10,7 @@
                         <form class="col s12 m12 l12" method="post">
                             <div class="row">
                                 <div class="input-field col s12 m3 l3">
-                                    <input name="busqueda" id="first_name" type="text" class="validate">
+                                    <input name="busqueda" id="first_name" autocomplete = "off" type="text" class="validate">
                                     <label for="first_name">Buscar productos
                                         <span>
                                             <i class="material-icons small right">search</i>
