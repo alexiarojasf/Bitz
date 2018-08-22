@@ -8,27 +8,27 @@
                         <form method="POST" class="col s12 m12 l12" autocomplete="off">
                             <div class="row">
                                 <div class="input-field col s12 m5 l5">
-                                    <input id="usuario" type="text" class="validate" name="usuario" value="<?php print($usuario->getAlias());?>">
+                                    <input id="usuario" type="text" class="validate" name="usuario" oncopy="return false" onpaste="return false" value="<?php print($usuario->getAlias());?>">
                                     <label for="usuario">Usuario</label>
                                 </div>
                                 <div class="input-field col s12 m6 l5">
-                                    <input id="nombre" type="text" class="validate" name="nombre" onkeypress="return soloLetras(event)" value="<?php print($usuario->getNombres());?>">
+                                    <input id="nombre" type="text" class="validate" name="nombre" onkeypress="return soloLetras(event)"  oncopy="return false" onpaste="return false" value="<?php print($usuario->getNombres());?>">
                                     <label for="nombre">Nombres</label>
                                 </div>
                                 <div class="input-field col s12 m6 l5">
-                                    <input id="apellido" type="text" class="validate" name="apellido" onkeypress="return soloLetras(event)" value="<?php print($usuario->getApellidos());?>">
+                                    <input id="apellido" type="text" class="validate" name="apellido" onkeypress="return soloLetras(event)"  oncopy="return false" onpaste="return false" value="<?php print($usuario->getApellidos());?>">
                                     <label for="apellido">Apellidos</label>
                                 </div>
                                 <div class="input-field col s12 m6 l5">
-                                    <input id="telefono" type="text" class="validate" name="telefono" data-length="8" maxlength="8" onkeypress="return valida(event)" value="<?php print($usuario->getTelefono());?>">
+                                    <input id="telefono" type="text" class="validate" name="telefono" data-length="8" maxlength="8" onkeypress="return valida(event)"  oncopy="return false" onpaste="return false" value="<?php print($usuario->getTelefono());?>">
                                     <label for="telefono">Teléfono</label>
                                 </div>
                                 <div class="input-field col s12 m6 l5">
-                                    <input id="correo" type="email" class="validate" name="correo" value="<?php print($usuario->getCorreo());?>">
+                                    <input id="correo" type="email" class="validate" name="correo"  oncopy="return false" onpaste="return false"  oncopy="return false" onpaste="return false" value="<?php print($usuario->getCorreo());?>">
                                     <label for="correo">Correo</label>
                                 </div>
                                 <div class="input-field col s12 m6 l5">
-                                    <input id="direccion" type="text" class="validate" name="direccion" value="<?php print($usuario->getDireccion());?>">
+                                    <input id="direccion" type="text" class="validate" name="direccion"  oncopy="return false" onpaste="return false" value="<?php print($usuario->getDireccion());?>">
                                     <label for="direccion">Dirección</label>
                                 </div>
                             </div>

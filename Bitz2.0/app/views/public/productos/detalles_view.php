@@ -17,11 +17,11 @@
         if(isset($_SESSION['id_usuario'])){
             print("
         <div class='card-action'>
-            <form method='post'>
+            <form method='post' autocomplete='off'>
                 <div class='row center'>
                     <div class='input-field col s12 m6'>
                         <i class='material-icons prefix'>list</i>
-                        <input id='cantidad' type='number' name='cantidad' min='1' max=".$producto->getCantidad()." class='validate'>
+                        <input id='cantidad' type='number' name='cantidad' min='1' max=".$producto->getCantidad()." class='validate'  oncopy='return false' onpaste='return false' >
                         <label for='cantidad'>Cantidad</label>
                     </div>
                     <div class='input-field col s12 m6 l12 '>
