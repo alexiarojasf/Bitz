@@ -27,8 +27,8 @@ try{
                     $mail->isSMTP();
                     $mail->Host = 'smtp.gmail.com';
                     $mail->SMTPAuth = true;
-                    $mail->Username = 'kidszonericaldone@gmail.com';
-                    $mail->Password = 'Kidszone123';
+                    $mail->Username = 'expobecas@gmail.com';
+                    $mail->Password = 'Expobecas2018';
                     $mail->SMTPSecure = 'ssl'; 
                     $mail->Port = 465;
                     $mail->setFrom('expobecas@gmail.com', 'Bitz');
@@ -67,7 +67,7 @@ try{
                         throw new Exception("No se pudo". $mail->ErrorInfo);
                     }
                     else{
-                        Page::showMessage(1, "Correo enviado", "acceder.php");
+                        Page::showMessage(1, "Correo enviado", "../public/login.php");
                     }
 						}
 							

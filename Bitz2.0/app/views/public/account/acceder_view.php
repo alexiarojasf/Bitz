@@ -12,7 +12,7 @@
             <form class="col s12" method='post' autocomplete="off">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input placeholder="Ej. Ernesto Lopez" type="text" id="alias" name="alias" class="validate"  oncopy="return false" onpaste="return false" value='<?php print($object->getAlias()) ?>' required/>
+                        <input placeholder="Ej. Ernesto Lopez" type="text" id="alias" name="alias" onkeypress="return check(event)" class="validate"  oncopy="return false" onpaste="return false" value='<?php print($object->getAlias()) ?>' required/>
                         <label for="alias">Usuario</label>
                     </div>
                 </div>

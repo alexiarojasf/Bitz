@@ -8,7 +8,7 @@
                         <form method="POST" class="col s12 m12 l12" autocomplete="off">
                             <div class="row">
                                 <div class="input-field col s12 m5 l5">
-                                    <input id="usuario" type="text" class="validate" name="usuario" oncopy="return false" onpaste="return false" value="<?php print($usuario->getAlias());?>">
+                                    <input id="usuario" type="text" class="validate" name="usuario" oncopy="return false" onpaste="return false" onkeypress="return check(event)" value="<?php print($usuario->getAlias());?>">
                                     <label for="usuario">Usuario</label>
                                 </div>
                                 <div class="input-field col s12 m6 l5">
