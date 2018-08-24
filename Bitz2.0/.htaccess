@@ -2,8 +2,8 @@
 # | Custom error messages/pages                                        |
 # ----------------------------------------------------------------------
 
-ErrorDocument 404 /Bitz2/web/404.html
-ErrorDocument 403 /Bitz2/web/403.html
+ErrorDocument 404 /Bitz/Bitz2.0/web/404.html
+ErrorDocument 403 /Bitz/Bitz2.0/web/403.html
 
 # ----------------------------------------------------------------------
 # | Error prevention                                                   |
