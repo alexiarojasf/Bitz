@@ -1,5 +1,5 @@
 <?php
-require_once("../app/models/usuario.class.php");
+require_once("../app/models/cliente.class.php");
 try{
     $_SESSION['lapso'] = time();
     if(isset($_GET['id'])){

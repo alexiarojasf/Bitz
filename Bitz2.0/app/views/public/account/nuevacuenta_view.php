@@ -23,6 +23,11 @@
                     <label for='password'>Repite Contraseña</label>
                 </div>
             </div>
+            <div class='row'>
+            <div class="col offset-l3">
+            <div class="g-recaptcha" data-sitekey="6LdE7WsUAAAAAIv1BL90xxbe3aQVol_6CmD3Mp1n"></div>
+            </div>
+            </div>
             <p class='center'>Si das a "registrar automaticamente aceptas los terminos y condiciones"</p>
             <div class='row'>
                 <div class='col s12'>

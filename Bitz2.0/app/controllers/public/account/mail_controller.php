@@ -1,5 +1,5 @@
 <?php
-require_once("../app/models/usuario.class.php");
+require_once("../app/models/cliente.class.php");
 require_once("../app/libraries/PHPMailer/class.phpmailer.php");
 require_once("../app/libraries/PHPMailer/class.smtp.php");
 

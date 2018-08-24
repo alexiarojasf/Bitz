@@ -16,6 +16,7 @@ class Usuario extends Validator{
     private $factura = null;
 	private $fechadehoy = null;
 	private $fechacuenta = null;
+	private $sesion = null;
 	
 
 	public function setFechaHoy($value){
@@ -183,9 +184,12 @@ class Usuario extends Validator{
 		return $this->estado;
 		}
 
+		public function getSesion(){
+			return $this->sesion;
+		}
 	//Métodos para manejar la sesión del usuario
 	public function checkAlias(){
-		$sql = "SELECT id_usuario,correo_usu,foto_usu,fecha_creacion, tipo_usu FROM usuario WHERE usuario = ?";
+		$sql = "SELECT id_usuario,correo_usu,foto_usu,fecha_creacion, sesion FROM usuario WHERE usuario = ?";
 		$params = array($this->alias);
 		$data = Database::getRow($sql, $params);
 		if($data){
@@ -193,7 +197,7 @@ class Usuario extends Validator{
 			$this->correo = $data['correo_usu'];
 			$this->foto = $data['foto_usu'];
 			$this->fechadehoy = $data['fecha_creacion'];
-
+			$this->sesion = $data['sesion'];
 			return true;
 		}else{
 			return false;
@@ -211,7 +215,7 @@ class Usuario extends Validator{
 	}	
 	public function changePassword(){
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
-		$sql = "UPDATE usuarios SET clave_usuario = ? WHERE id_usuario = ?";
+		$sql = "UPDATE usuario SET contrasena = ? WHERE id_usuario = ?";
 		$params = array($hash, $this->id);
 		return Database::executeRow($sql, $params);
 	}
@@ -249,6 +253,7 @@ class Usuario extends Validator{
 			$this->direccion = $usuario['direccion_usu'];
 			$this->foto = $usuario['foto_usu'];
 			$this->tipousu = $usuario['tipo_usu'];
+			$this->clave = $usuario['contrasena'];
 			return true;
 		}else{
 			return null;
@@ -311,6 +316,48 @@ class Usuario extends Validator{
 		}else{
 			return false;
 		}
+	}
+	public function CorreoExistente(){
+		$sql = "SELECT * FROM usuario WHERE correo_usu = ?";
+		$params =array ($this->correo);
+		return Database::getRow($sql, $params);
+	}
+	public function VerificarCorreo(){
+		$sql = "SELECT id_usuario, nombre_usu FROM usuario WHERE correo_usu = ?";
+		$params = array($this->correo);
+		$data = Database::getRow($sql, $params);
+		if($data){
+			$this->id = $data['id_usuario'];
+			$this->nombres = $data['nombre_usu'];
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function RestablecerContra($contra){
+		$hash = password_hash($contra, PASSWORD_DEFAULT);
+		$sql = "UPDATE usuario SET contrasena = ? WHERE correo_usu = ?";
+		$params = array($hash, $this->correo);
+		return Database::executeRow($sql, $params);
+	}
+	public function FechaCreacion(){
+		$sql = "UPDATE usuario SET fecha_creacion = ? WHERE id_usuario = ?";
+		$fecha1= date("Y-m-d");
+		$params = array($fecha1,  $this->id);
+		return Database::executeRow($sql, $params);
+	}
+	public function SesionUnica1(){
+		$sql = "UPDATE usuario SET sesion = ? WHERE id_usuario = ?";
+		$activo = 1;
+		$params = array($activo, $_SESSION['id_usuario']);
+		return Database::executeRow($sql, $params);
+	}
+	public function SesionUnica2(){
+		$sql = "UPDATE usuario SET sesion = ? WHERE id_usuario = ?";
+		$inactivo = 0;
+		$params = array($inactivo, $_SESSION['id_usuario']);
+		return Database::executeRow($sql, $params);
 	}
 }
 ?>
