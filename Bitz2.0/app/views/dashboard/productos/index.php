@@ -10,7 +10,7 @@
                         <form class="col s12 m12 l12" method="post">
                             <div class="row">
                                 <div class="input-field col s12 m3 l3">
-                                    <input name="busqueda" id="first_name" type="text" class="validate">
+                                    <input name="busqueda" id="first_name" autocomplete = "off" type="text" class="validate">
                                     <label for="first_name">Buscar productos
                                         <span>
                                             <i class="material-icons small right">search</i>
@@ -27,6 +27,10 @@
                                 <table class="striped " id="tablaScroll" class="striped display" data-order='[[ 1, "asc" ]]' data-page-length='10'>
                                         <thead>
                                             <tr>
+                                            <?php
+                                                $tipousu = $_SESSION['tipo_usu'];
+                                                if($tipousu == 1){
+                                                print("
                                                 <th>Producto</th>
                                                 <th>Descripcion</th>
                                                 <th>Cantidad</th>
@@ -36,28 +40,60 @@
                                                 <th>Modelo</th>
                                                 <th>Estado</th>
                                                 <th>Acciones</th>
+                                                    ");
+                                                }else if ($tipousu == 2){
+                                                print("
+                                                <th>Producto</th>
+                                                <th>Descripcion</th>
+                                                <th>Cantidad</th>
+                                                <th>Precio</th>
+                                                <th>Categoria</th>
+                                                <th>Proveedor</th>
+                                                <th>Modelo</th>
+                                                <th>Estado</th>
+                                                    "); 
+                                                }
+                                                ?>
                                             </tr>
                                         </thead> 
 
                                         <tbody>
                                         <?php
-                                        foreach($data as $row){
-                                            print("
-                                            <tr>
-                                                <td>$row[nombre_prod]</td>
-                                                <td>$row[descripcion_prod]</td>
-                                                <td>$row[cantidad_prod]</td>
-                                                <td>$row[precio_prod]</td>
-                                                <td>$row[nombre_tipo_prod]</td>
-                                                <td>$row[nombre_prov]</td>
-                                                <td>$row[modelo_prod]</td>
-                                                <td>$row[estado]</td>
-                                                <td>
-                                                    <a href='update.php?id=$row[id_producto]' class='blue-text'><img src='../../web/img/edit.png'></a>
-                                                    <a href='delete.php?id=$row[id_producto]' class='red-text'><img src='../../web/img/eraser.png'></a>
-                                                </td>
-                                            </tr>
-                                            ");
+                                        $tipousu = $_SESSION['tipo_usu'];
+                                        if($tipousu == 1){
+                                            foreach($data as $row){
+                                                print("
+                                                <tr>
+                                                    <td>$row[nombre_prod]</td>
+                                                    <td>$row[descripcion_prod]</td>
+                                                    <td>$row[cantidad_prod]</td>
+                                                    <td>$row[precio_prod]</td>
+                                                    <td>$row[nombre_tipo_prod]</td>
+                                                    <td>$row[nombre_prov]</td>
+                                                    <td>$row[modelo_prod]</td>
+                                                    <td>$row[estado]</td>
+                                                    <td>
+                                                        <a href='update.php?id=$row[id_producto]' class='blue-text'><img src='../../web/img/edit.png'></a>
+                                                        <a href='delete.php?id=$row[id_producto]' class='red-text'><img src='../../web/img/eraser.png'></a>
+                                                    </td>
+                                                </tr>
+                                                ");
+                                            }
+                                        }
+                                        else if($tipousu == 2){
+                                            foreach($data as $row){
+                                                print("
+                                                <tr>
+                                                    <td>$row[nombre_prod]</td>
+                                                    <td>$row[descripcion_prod]</td>
+                                                    <td>$row[cantidad_prod]</td>
+                                                    <td>$row[precio_prod]</td>
+                                                    <td>$row[nombre_tipo_prod]</td>
+                                                    <td>$row[nombre_prov]</td>
+                                                    <td>$row[modelo_prod]</td>
+                                                    <td>$row[estado]</td>                                                </tr>
+                                                ");
+                                            }
                                         }
                                         ?>
                                         </tbody>

@@ -9,7 +9,7 @@
 			<div class='row'>
 				<div class='input-field col s12 m6 offset-m3'>
 					<i class='material-icons prefix white-text'>person_pin</i>
-					<input id='alias' type='text' name='alias' class='validate' value='<?php print($object->getAlias()) ?>' required/>
+					<input id='alias' type='text'autocomplete = 'off' name='alias' class='validate' value='<?php print($object->getAlias()) ?>' required/>
 					<label for='alias'>Usuario</label>
 				</div>
 				<div class='input-field col s12 m6 offset-m3'>

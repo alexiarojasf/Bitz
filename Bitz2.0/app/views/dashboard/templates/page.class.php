@@ -4,6 +4,54 @@ require_once("../../app/helpers/validator.class.php");
 require_once("../../app/helpers/component.class.php");
 require("../../app/models/factura.class.php");
 class Page extends Component{
+
+    public static function templateHeaderContra($title)
+    {
+        session_start();
+		ini_set("date.timezone","America/El_Salvador");
+		print("
+			
+        <!DOCTYPE html>
+        <html>
+        <head>
+
+        
+        <link rel='shortcut icon' href='../../web/images/favicon.ico' type='image/x-icon'>
+        
+        <link type='text/css' rel='stylesheet' href='../../web/css/materialize.css' media='screen,projection'/>
+        
+        <link type='text/css' rel='stylesheet' href='../../web/css/gradient-buttons.css'/>
+                
+        <link rel='stylesheet' href='../../web/css/style.css'>
+
+        <link rel='stylesheet' type='text/css' href='../../web/css/datatables.min.css'>
+        
+        <script type='text/javascript' src='../../web/js/sweetalert.min.js'></script>
+
+        <script type='text/javascript' src='../../web/js/jquery-3.3.1.min.js'></script>
+
+        <script type='text/javascript' src='../../web/js/chart.js'></script>
+
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+        <title>$title</title>
+        </head>
+        <body background='img/cover_datos.png' alt='fondo' id='cover_datos'>");
+        
+            print("
+				<header class='navbar-fixed'>
+                <nav>
+                <div class='nav-wrapper'>
+                  <a href='#!' class='brand-logo center'>$title</a>
+                  <a href='#' data-activates='slide-out' class='button-collapse'><i class='material-icons white-text'>menu</i></a>
+                  <ul class='right hide-on-med-and-down'>
+                  </ul>
+                </div>
+              </nav>
+				</header>
+				<main class='container'>
+			");
+    }
+
 	public static function templateHeader($title){
 		session_start();
 		ini_set("date.timezone","America/El_Salvador");
@@ -36,7 +84,9 @@ class Page extends Component{
         <body background='img/cover_datos.png' alt='fondo' id='cover_datos'>");
 
         if(isset($_SESSION['id_usuario'])){
-            print("<header>
+            $tipousu = $_SESSION['tipo_usu'];
+            if($tipousu == 1){
+                print("<header>
             <div class='navbar-fixed'>
                     <nav>
                       <div class='nav-wrapper'>
@@ -53,7 +103,7 @@ class Page extends Component{
                <div class='background'>
                <img src='../../web/images/azulito.jpg'>
                </div>
-              <a href='#!user'><img class='circle ' src='../../web/images/$_SESSION[foto_usu]'></a>
+              <a href='#!user'><img class='circle ' src='../../web/images/fotos_usu/$_SESSION[foto_usu]'></a>
               <a href='#!name'><span class='white-text name '>$_SESSION[usuario]</span></a><a href='../usuarios/update.php?id=$_SESSION[id_usuario]' class='white-text'>Editar perfil</a>
               <a href='#!email'><span class='white-text email '>$_SESSION[correo_usu]</span></a>
             </div></li>
@@ -67,99 +117,38 @@ class Page extends Component{
             </header>
             <main>
             ");
-    
-        $hoy = date('Y-m-j');
-        $a = "'";
-        $fechaUsu = "$_SESSION[fecha_creacion]";
-        $fecha_aviso1 = strtotime('+30 day', strtotime($fechaUsu));
-        $fecha_aviso1 = date ('Y-m-j',$fecha_aviso1);
-        $fecha_aviso2 = strtotime('+60 day', strtotime($fechaUsu));
-        $fecha_aviso2 = date ('Y-m-j',$fecha_aviso2);
-        $fecha_aviso3 = strtotime('+86 day', strtotime($fechaUsu));
-        $fecha_aviso3 = date ('Y-m-j',$fecha_aviso3);
-        $fecha_aviso4 = strtotime('+87 day', strtotime($fechaUsu));
-        $fecha_aviso4 = date ('Y-m-j',$fecha_aviso4);
-        $fecha_aviso5 = strtotime('+88 day', strtotime($fechaUsu));
-        $fecha_aviso5 = date ('Y-m-j',$fecha_aviso5);
-        $fecha_aviso6 = strtotime('+89 day', strtotime($fechaUsu));
-        $fecha_aviso6 = date ('Y-m-j',$fecha_aviso6);
-        $fecha_aviso7 = strtotime('+90 day', strtotime($fechaUsu));
-        $fecha_aviso7 = date ('Y-m-j',$fecha_aviso7);
+            }else if($tipousu == 2 ){
+                print("<header>
+            <div class='navbar-fixed'>
+                    <nav>
+                      <div class='nav-wrapper'>
+                        <a href='#!' class='brand-logo center'>$title</a>
+                        <a href='#' data-activates='slide-out' class='button-collapse'><i class='material-icons white-text'>format_list_bulleted</i></a>
+                        <ul class='right hide-on-med-and-down'>
+                        </ul>
+                      </div>
+                    </nav>
+                  </div>
+                  
+        <ul id='slide-out' class='side-nav fixed indigo darken-4'>
+            <li><div class='user-view'>
+               <div class='background'>
+               <img src='../../web/images/azulito.jpg'>
+               </div>
+              <a href='#!user'><img class='circle ' src='../../web/images/fotos_usu/$_SESSION[foto_usu]'></a>
+              <a href='#!name'><span class='white-text name '>$_SESSION[usuario]</span></a><a href='../usuarios/update.php?id=$_SESSION[id_usuario]' class='white-text'>Editar perfil</a>
+              <a href='#!email'><span class='white-text email '>$_SESSION[correo_usu]</span></a>
+            </div></li>
+            <li><a href='../dashboard/menu_ad.php' class='white-text'><i class='material-icons right white-text'>home</i>Dashboard</a></li>
+            <li><a href='../usuarios/index.php' class='white-text'><i class='material-icons right white-text'>account_circle</i>Usuarios</a></li>
+            <li><a href='../productos/index.php' class='white-text'><i class='material-icons right white-text'>important_devices</i>Productos</a></li>
+            <li><a href='../account/logout.php' class='white-text'><i class='material-icons right white-text'>exit_to_app</i>Cerrar sesión</a></li>
+          </ul>
+            </header>
+            <main>
+            ");
 
-
-        if($hoy == $fecha_aviso1){
-            print('<script>
-            $(document).ready(function(){
-                toast();
-            });
-            function toast() {
-                var $toastContent = $("<span><h6>Pasó un mes desde tu último cambio de contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../usuarios/update.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
-                Materialize.toast($toastContent, 6000);
-            }
-            </script>');
-        }else if($hoy == $fecha_aviso2){
-            print('<script>
-            $(document).ready(function(){
-                toast();
-            });
-            function toast() {
-                var $toastContent = $("<span><h6>Pasaron 2 meses desde tu último cambio de contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../usuarios/update.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
-                Materialize.toast($toastContent, 6000);
-            }
-            </script>');
-        }else if($hoy == $fecha_aviso3){
-            print('<script>
-            $(document).ready(function(){
-                toast();
-            });
-            function toast() {
-                var $toastContent = $("<span><h6>Faltan 5 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../usuarios/update.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
-                Materialize.toast($toastContent, 6000);
-            }
-            </script>');
-        }else if($hoy == $fecha_aviso4){
-            print('<script>
-            $(document).ready(function(){
-                toast();
-            });
-            function toast() {
-                var $toastContent = $("<span><h6>Faltan 4 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../usuarios/update.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
-                Materialize.toast($toastContent, 6000);
-            }
-            </script>');
-        }else if($hoy == $fecha_aviso5){
-            print('<script>
-            $(document).ready(function(){
-                toast();
-            });
-            function toast() {
-                var $toastContent = $("<span><h6>Faltan 3 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../usuarios/update.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
-                Materialize.toast($toastContent, 6000);
-            }
-            </script>');
-        }else if($hoy == $fecha_aviso6){
-            print('<script>
-            $(document).ready(function(){
-                toast();
-            });
-            function toast() {
-                var $toastContent = $("<span><h6>Faltan 2 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../usuarios/update.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
-                Materialize.toast($toastContent, 6000);
-            }
-            </script>');
-        }else if($hoy == $fecha_aviso7){
-            print('<script>
-            $(document).ready(function(){
-                toast();
-            });
-            function toast() {
-                var $toastContent = $("<span><h6>Faltan 1 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../usuarios/update.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
-                Materialize.toast($toastContent, 6000);
-            }
-            </script>');
-        }
-        
-
+            }         
         }else{
             print("
 				<header class='navbar-fixed'>

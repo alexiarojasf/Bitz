@@ -14,7 +14,18 @@ try{
 							$_SESSION['correo_usu'] = $object->getCorreo();
 							$_SESSION['foto_usu'] = $object->getImagen();
 							$_SESSION['fecha_creacion'] = $object->getFechaHoy();
-							Page::showMessage(1, "Autenticación correcta", "../dashboard/menu_ad.php");
+							$_SESSION['tipo_usu'] = $object->getIdTipoUsuario();
+							$tipousu = $_SESSION['tipo_usu'];
+							$fechaUsu = $_SESSION['fecha_creacion'];
+							$fechaLimite = strtotime('+90 day', strtotime($fechaUsu));
+							$fechaLimite = date ('Y-m-j',$fechaLimite);
+							$hoy = date("Y-m-j");
+							if ($hoy >= $fechaLimite) {
+								Page::showMessage(2, "El uso de tu contraseña ha expirado", "new_contra.php");
+							}
+							else{
+								Page::showMessage(1, "Autenticación correcta", "../dashboard/menu_ad.php");
+							}
 						}else{ 
 							throw new Exception("Clave inexistente");
 						}

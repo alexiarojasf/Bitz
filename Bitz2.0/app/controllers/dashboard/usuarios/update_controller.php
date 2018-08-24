@@ -8,6 +8,7 @@ try{
         if($usuario->setId($_GET['id'])){
             if($usuario->readUsuario()){
                 if(isset($_POST['actualizar'])){
+                    $usuario->setFechaHoy($hoy);
                     if($usuario->setAlias($_POST['usuario'])){
                         if($usuario->setNombres($_POST['nombre'])){
                             if($usuario->setApellidos($_POST['apellido'])){
@@ -16,12 +17,11 @@ try{
                                         throw new Exception("Usuario diferente a contraseña");
                                     }
                                     else if($_POST['clave1'] == $_POST['clave2']){
-                                        if($usuario->setClave($_POST['clave1'])){
+                                        if($usuario->setClave($_POST['clave1'])){ 
                                             if($usuario->setCorreo($_POST['correo'])){
                                                 if($usuario->setDireccion($_POST['direccion'])){
                                                     if($usuario->setIdTipoUsuario($_POST['tipousu'])){
                                                         if($usuario->setImagen($_POST['foto'])){
-                                                            $usuario->setFechaHoy($hoy);
                                                 if($usuario->updateUsuario()){
                                                     Page::showMessage(1, "Usuario actualizado | Los cambios de imagen se visualizaran hasta el siguiente inicio de sesión ", "index.php");
                                                 }else{
