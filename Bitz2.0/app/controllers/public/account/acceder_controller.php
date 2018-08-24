@@ -1,14 +1,15 @@
 <?php
-require_once("../app/models/cliente.class.php");
-try{
+require_once ("../app/models/cliente.class.php");
+try {
 	$object = new Usuario;
-	if($object->getUsuarios()){$object->getId();
-		if(isset($_POST['iniciar'])){
+	if ($object->getUsuarios()) {
+		$object->getId();
+		if (isset($_POST['iniciar'])) {
 			$_POST = $object->validateForm($_POST);
-			if($object->setAlias($_POST['alias'])){
-				if($object->checkAlias()){
-					if($object->setClave($_POST['clave'])){
-						if($object->checkPassword()){
+			if ($object->setAlias($_POST['alias'])) {
+				if ($object->checkAlias()) {
+					if ($object->setClave($_POST['clave'])) {
+						if ($object->checkPassword()) {
 							$_SESSION['id_usuario'] = $object->getId();
 							$_SESSION['usuario'] = $object->getAlias();
 							$_SESSION['correo_usu'] = $object->getCorreo();
@@ -19,36 +20,48 @@ try{
 							$tipousu = $_SESSION['tipo_usu'];
 							$fechaUsu = $_SESSION['fecha_creacion'];
 							$fechaLimite = strtotime('+90 day', strtotime($fechaUsu));
-							$fechaLimite = date ('Y-m-j',$fechaLimite);
+							$fechaLimite = date('Y-m-j', $fechaLimite);
 							$hoy = date("Y-m-j");
 							if ($hoy >= $fechaLimite) {
 								Page::showMessage(2, "El uso de tu contraseña ha expirado", "new_contra.php");
 							}
-							else if($sesion == 0){
-								if($object->SesionUnica1()){
+							else
+							if ($sesion == 0) {
+								if ($object->SesionUnica1()) {
 									Page::showMessage(1, "Autenticación correcta", "../public/index.php");
 								}
-							} else{
-								Page::showMessage(3, "La alexia es terrible", "../public/login.php");
 							}
-						}else{ 
+							else {
+								//Se destruyen las variables
+								unset($_SESSION['id_usuario']);
+								Page::showMessage(3, "La cuenta esta siendo utilizada", "../public/login.php");
+							}
+						}
+						else {
 							throw new Exception("Clave inexistente");
 						}
-					}else{
+					}
+					else {
 						throw new Exception("Clave menor a 6 caracteres");
 					}
-				}else{
+				}
+				else {
 					throw new Exception("Alias inexistente");
 				}
-			}else{
+			}
+			else {
 				throw new Exception("Alias incorrecto");
 			}
 		}
-	}else{
+	}
+	else {
 		Page::showMessage(3, "No hay usuarios disponibles", "register.php");
 	}
-}catch(Exception $error){
-	Page::showMessage(2, $error->getMessage(), null);
 }
-require_once("../app/views/public/account/acceder_view.php");
+catch(Exception $error) {
+	Page::showMessage(2, $error->getMessage() , null);
+}
+require_once ("../app/views/public/account/acceder_view.php");
+
 ?>
+

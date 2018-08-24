@@ -27,6 +27,10 @@
                 </tr>
                 ");
             }
+            print("
+    <form method='post' enctype='multipart/form-data'>
+    <button type='submit' name='comprar' class='btn waves-effect blue tooltipped' data-tooltip='Comprar'>Finalizar Compra</button>
+    </form>");
         }else{
             print("
             <tr>
@@ -37,8 +41,4 @@
         ?>
         </tbody>
     </table>
-    <?php print("
-    <form method='post' enctype='multipart/form-data'>
-    <button type='submit' name='comprar' class='btn waves-effect blue tooltipped' data-tooltip='Comprar'>Finalizar Compra</button>
-    </form>");  ?>
 </div>
