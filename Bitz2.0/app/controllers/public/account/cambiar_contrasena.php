@@ -4,7 +4,7 @@ try{
     if(isset($_POST['actualizar'])){
         $usuario = new Usuario;
         $_POST = $usuario->validateForm($_POST);
-        if($usuario->setId($_SESSION['id_usuario'])){
+        if($usuario->setId($_SESSION['id_usuario'])){ 
             if($_POST['contraactual'] == $_POST['contraactual2']){
                 if($usuario->setClave($_POST['contraactual'])){
                     if($usuario->checkPassword()){
