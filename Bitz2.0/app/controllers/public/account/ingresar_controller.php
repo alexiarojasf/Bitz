@@ -14,8 +14,6 @@ try{
 							$_SESSION['correo_usu'] = $object->getCorreo();
 							$_SESSION['fecha_creacion'] = $object->getFechaHoy();
 							$_SESSION['tipo_usu'] = $object->getIdTipoUsuario();
-							$_SESSION['sesion'] = $object->getSesion();
-							$sesion = $_SESSION['sesion'];
 							$tipousu = $_SESSION['tipo_usu'];
 							$fechaUsu = $_SESSION['fecha_creacion'];
 							$fechaLimite = strtotime('+90 day', strtotime($fechaUsu));
@@ -24,12 +22,8 @@ try{
 							if ($hoy >= $fechaLimite) {
 								Page::showMessage(2, "El uso de tu contraseña ha expirado", "new_contra.php");
 							}
-							else if($sesion == 0){
-								if($object->SesionUnica1()){
-									Page::showMessage(1, "Autenticación correcta", "../public/index.php");
-								}
-							} else{
-								Page::showMessage(3, "La alexia es terrible", "../public/login.php");
+							else{
+								Page::showMessage(1, "Autenticación correcta", "../public/index.php");
 							}
 						}else{ 
 							throw new Exception("Clave inexistente");

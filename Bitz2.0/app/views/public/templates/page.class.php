@@ -205,7 +205,7 @@ class Page extends Component{
         <script type='text/javascript' src='../web/js/mijs.js'></script>
         <script type='text/javascript' src='../web/js/mijs_ad.js'></script>
         <script type='text/javascript' src='../web/js/scripts.js'></script>
-        <script>
+        <script < src='https://www.google.com/recaptcha/api.js?hl=es' async defer></script><script>
         function soloLetras(e){
            key = e.keyCode || e.which;
            tecla = String.fromCharCode(key).toLowerCase();
@@ -324,6 +324,24 @@ class Page extends Component{
 	</div>
 </div>
 </footer>");
+    }
+    public static function templateHeaderLoca(){
+        session_start();
+        print("
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <meta charset='UTF-8'>
+        <title>Bitz Lab</title>
+        <link rel='shortcut icon' href='../web/images/favicon.ico' type='image/x-icon'>
+        <link type='text/css' rel='stylesheet' href='../web/css/materialize.css' media='screen,projection'/>
+        <link type='text/css' rel='stylesheet' href='../web/css/gradient-buttons.css'/>
+        <link rel='stylesheet' href='../web/css/style.css'>
+        <script type='text/javascript' src='../web/js/sweetalert.min.js'></script>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+        </head>
+        <body>
+");
     }
     public static function navLogin($title)
     {  

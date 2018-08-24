@@ -1,5 +1,5 @@
 <?php
-require_once("../app/models/usuario.class.php");
+require_once("../app/models/cliente.class.php");
 try{
     if(isset($_POST['actualizar'])){
         $usuario = new Usuario;
