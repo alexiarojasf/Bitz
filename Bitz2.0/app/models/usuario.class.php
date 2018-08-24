@@ -7,6 +7,8 @@ class Usuario extends Validator{
 	private $correo = null;
 	private $alias = null;
 	private $clave = null;
+	private $newclave = null;
+	private $claveantigua = null;
 	private $telefono = null;
 	private $foto = null;
 	private $direccion = null;
@@ -173,10 +175,21 @@ class Usuario extends Validator{
 	public function getClave(){
 		return $this->clave;
 	}
+	public function setClaveNueva($value){
+		if($this->validatePassword($value)){
+			$this->newclave = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getClaveNueva(){
+		return $this->newclave;
+	}
 
 	//Métodos para manejar la sesión del usuario
 	public function checkAlias(){
-		$sql = "SELECT id_usuario,correo_usu,foto_usu,fecha_creacion, tipo_usu FROM usuario WHERE usuario = ?";
+		$sql = "SELECT id_usuario,correo_usu,foto_usu,fecha_creacion,tipo_usu FROM usuario WHERE usuario = ?";
 		$params = array($this->alias);
 		$data = Database::getRow($sql, $params);
 		if($data){
@@ -184,7 +197,7 @@ class Usuario extends Validator{
 			$this->correo = $data['correo_usu'];
 			$this->foto = $data['foto_usu'];
 			$this->fechadehoy = $data['fecha_creacion'];
-			$this->$tipousu = $data['tipo_usu'];
+			$this->tipousu = $data['tipo_usu'];
 			return true;
 		}else{
 			return false;
@@ -201,9 +214,10 @@ class Usuario extends Validator{
 		}
 	}	
 	public function changePassword(){
-		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
-		$sql = "UPDATE usuario SET contrasena = ? WHERE id_usuario = ?";
-		$params = array($hash, $this->id);
+		$hoy = date("Y-m-j");
+		$hash = password_hash($this->newclave, PASSWORD_DEFAULT);
+		$sql = "UPDATE usuario SET contrasena = ?, fecha_creacion = ? WHERE id_usuario = ?";
+		$params = array($hash,$hoy, $this->id);
 		return Database::executeRow($sql, $params);
 	}
 
@@ -262,7 +276,7 @@ class Usuario extends Validator{
 	public function updateUsuario(){
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
 		$sql = "UPDATE usuario SET usuario = ?,nombre_usu = ?, apellido_usu = ?,telefono_usu = ?, contrasena = ?,correo_usu = ?, direccion_usu = ?,foto_usu = ?, tipo_usu = ?, fecha_creacion = ? WHERE id_usuario = ?";
-		$params = array($this->alias,$this->nombres, $this->apellidos,$this->telefono, $hash, $this->correo, $this->direccion,  $this->foto, $this->tipousu,$this->id,$this->fechadehoy);
+		$params = array($this->alias,$this->nombres, $this->apellidos,$this->telefono, $hash, $this->correo, $this->direccion,  $this->foto, $this->tipousu,$this->fechadehoy,$this->id);
 		return Database::executeRow($sql, $params);
 	}
 	public function updateUsuarios(){

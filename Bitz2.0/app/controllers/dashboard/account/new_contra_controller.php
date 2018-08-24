@@ -4,7 +4,7 @@ $hoy = date("Y-m-d");
 
 try{
 	$object = new Usuario;
-	if($object->getUsuarios()){
+	if($object->getUsuarios()){ 
 		if(isset($_POST['actualizar'])){
             $_POST = $object->validateForm($_POST);
             $hoy = date("Y-m-j");
