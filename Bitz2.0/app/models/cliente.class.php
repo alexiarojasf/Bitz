@@ -14,9 +14,21 @@ class Usuario extends Validator{
     private $tipousu = null;
     private $estado = null;
     private $factura = null;
-
+	private $fechadehoy = null;
+	private $fechacuenta = null;
 	
 
+	public function setFechaHoy($value){
+		if($value){
+			$this->fechadehoy = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getFechaHoy(){
+		return $this->fechadehoy;
+	}
 
 	//Métodos para sobrecarga de propiedades
 	public function setId($value){
@@ -173,13 +185,15 @@ class Usuario extends Validator{
 
 	//Métodos para manejar la sesión del usuario
 	public function checkAlias(){
-		$sql = "SELECT usuario.id_usuario,usuario.correo_usu,usuario.foto_usu FROM usuario WHERE usuario.usuario = ?";
+		$sql = "SELECT id_usuario,correo_usu,foto_usu,fecha_creacion, tipo_usu FROM usuario WHERE usuario = ?";
 		$params = array($this->alias);
 		$data = Database::getRow($sql, $params);
 		if($data){
 			$this->id = $data['id_usuario'];
 			$this->correo = $data['correo_usu'];
 			$this->foto = $data['foto_usu'];
+			$this->fechadehoy = $data['fecha_creacion'];
+
 			return true;
 		}else{
 			return false;

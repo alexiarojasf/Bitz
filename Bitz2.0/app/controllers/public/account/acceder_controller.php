@@ -11,9 +11,20 @@ try{
 						if($object->checkPassword()){
 							$_SESSION['id_usuario'] = $object->getId();
 							$_SESSION['usuario'] = $object->getAlias();
-							$_SESSION['correo_usu'] = $object->getCorreo(); 
-   
-								Page::showMessage(1, "Autenticación correcta", "../public/index.php"); 
+							$_SESSION['correo_usu'] = $object->getCorreo();
+							$_SESSION['fecha_creacion'] = $object->getFechaHoy();
+							$_SESSION['tipo_usu'] = $object->getIdTipoUsuario();
+							$tipousu = $_SESSION['tipo_usu'];
+							$fechaUsu = $_SESSION['fecha_creacion'];
+							$fechaLimite = strtotime('+90 day', strtotime($fechaUsu));
+							$fechaLimite = date ('Y-m-j',$fechaLimite);
+							$hoy = date("Y-m-j");
+							if ($hoy >= $fechaLimite) {
+								Page::showMessage(2, "El uso de tu contraseña ha expirado", "new_contra.php");
+							}
+							else{
+								Page::showMessage(1, "Autenticación correcta", "../public/index.php");
+							}
 						}else{ 
 							throw new Exception("Clave inexistente");
 						}
