@@ -6,9 +6,9 @@ try {
 		$object->getId();
 		if (isset($_POST['iniciar'])) {
 			$_POST = $object->validateForm($_POST);
-			if ($object->setAlias($_POST['alias'])) {
+			if ($object->setAlias(htmlentities($_POST['alias']))) {
 				if ($object->checkAlias()) {
-					if ($object->setClave($_POST['clave'])) {
+					if ($object->setClave(htmlentities($_POST['clave']))) {
 						if ($object->checkPassword()) {
 							$_SESSION['id_usuario'] = $object->getId();
 							$_SESSION['usuario'] = $object->getAlias();
@@ -20,8 +20,7 @@ try {
 							$tipousu = $_SESSION['tipo_usu'];
 							$fechaUsu = $_SESSION['fecha_creacion'];
 							$fechaLimite = strtotime('+90 day', strtotime($fechaUsu));
-							$fechaLimite = date('Y-m-j', $fechaLimite);
-							print("<h1>".$fechaUsu."</h1>");
+							$fechaLimite = date('Y-m-j', $fechaLimite); 
 							$hoy = date("Y-m-j");
 							if ($hoy >= $fechaLimite) {
 								Page::showMessage(2, "El uso de tu contraseña ha expirado", "new_contra.php");
@@ -32,7 +31,7 @@ try {
 								}
 							}else{
 								//Se destruyen las variables
-								unset($_SESSION['id_usuario']);
+								unset($_SESSION['id_usuario']); //ELIMINA LAS VARIABLES
 								Page::showMessage(3, "La cuenta esta siendo utilizada", "../public/login.php");
 							}
 						}
