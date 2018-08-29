@@ -12,6 +12,7 @@ try{
 			if($object->setAlias($_POST['alias'])){
 				if($object->checkAlias()){
 					if($object->setClave($_POST['claveAntigua'])){
+                        $contra = $_POST['clave'];
                         if(strlen($contra) >= 8){
                             //PREG_MATCH <- HACE UNA COMPARACIÓN
                             if(preg_match('`[a-z]`', $contra)){

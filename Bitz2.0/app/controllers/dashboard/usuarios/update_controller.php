@@ -15,11 +15,9 @@ try{
                                 if($usuario->setTelefono($_POST['telefono'])){
                                     if($usuario->setClave($_POST['clave1'])){
                                         if($usuario->checkPassword()){
-                                            if($usuario->getClave() == $_POST['clave2']){
-                                                throw new Exception("La contraseña debe ser diferente a la anterior");
-                                            }else if($_POST['usuario']==$_POST['clave2']){
+                                            if($_POST['usuario']==$_POST['clave2']){
                                                 throw new Exception("La contraseña no puede ser el nombre de usuario");
-                                            }else if($_POST['clave2'] != $usuario->getClave()){
+                                            }else if($_POST['clave2'] == $usuario->getClave()){
                                                 if($usuario->setClave($_POST['clave2'])){
                                                     $contra = $_POST['clave2'];
                                                         if(strlen($contra) >= 8){
@@ -69,7 +67,7 @@ try{
                                                                     throw new Exception("La contraseña debe tener por lo menos una letra mayúscula");
                                                                 }
                                                             }else{
-                                                                throw new Exception("la contraseña debe tener al menos un caracter alfanúmerico");
+                                                                throw new Exception("La contraseña debe tener al menos un caracter alfanúmerico");
                                                             }
                                                         }else{
                                                             throw new Exception("La contraseña debe ser igual o mayor a 8 caracteres");
@@ -77,6 +75,8 @@ try{
                                                     }else{
                                                         throw new Exception("Clave menor a 8 caracteres");
                                                     }
+                                                }else{
+                                                    throw new Exception("La clave no coincide con la anterior");
                                                 }
                                         }else{
                                             throw new Exception("Contraseña incorrecta");
