@@ -6,13 +6,13 @@ try{
         $usuario = new Usuario;
         if($usuario->setId($_GET['id'])){
             if($usuario->readUsuario()){
-                if(isset($_POST['actualizar'])){
-                    if($usuario->setAlias($_POST['usuario'])){
-                        if($usuario->setNombres($_POST['nombre'])){
-                            if($usuario->setApellidos($_POST['apellido'])){
-                                if($usuario->setTelefono($_POST['telefono'])){
-                                    if($usuario->setCorreo($_POST['correo'])){
-                                        if($usuario->setDireccion($_POST['direccion'])){   
+                if(isset(htmlentities($_POST['actualizar']))){
+                    if($usuario->setAlias(htmlentities($_POST['usuario']))){
+                        if($usuario->setNombres(htmlentities($_POST['nombre'])){
+                            if($usuario->setApellidos(htmlentities($_POST['apellido']))){
+                                if($usuario->setTelefono(htmlentities($_POST['telefono']))){
+                                    if($usuario->setCorreo(htmlentities($_POST['correo']))){
+                                        if($usuario->setDireccion(htmlentities($_POST['direccion']))){   
                                     if($usuario->updateUsuarios()){
                                         Page::showMessage(1, "Usuario actualizado, vuelva a iniciar sesión para ver los cambios", "index.php");
                                     }else{

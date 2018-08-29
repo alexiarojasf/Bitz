@@ -40,12 +40,12 @@ try{
                     <meta charset="utf-8">
                     <style type ="txt/css">
                     #tex{
-                        color: #63666A;
+                        color: #355C7D;
                         font-size: 11px;
                     }
                     .l{
                         font-size: 13px;
-                        color: #BF2B8A;
+                        color: #355C7D;
                     }        
                     </style>
                     </head>

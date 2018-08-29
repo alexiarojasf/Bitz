@@ -5,9 +5,9 @@ try{
 	if($object->getUsuarios()){$object->getId();
 		if(isset($_POST['iniciar'])){
 			$_POST = $object->validateForm($_POST);
-			if($object->setAlias($_POST['alias'])){
+			if($object->setAlias(htmlentities($_POST['alias']))){
 				if($object->checkAlias()){
-					if($object->setClave($_POST['clave'])){
+					if($object->setClave(htmlentities($_POST['clave']))){
 						if($object->checkPassword()){
 							$_SESSION['id_usuario'] = $object->getId();
 							$_SESSION['usuario'] = $object->getAlias();
@@ -20,7 +20,7 @@ try{
 							$fechaLimite = date ('Y-m-j',$fechaLimite);
 							$hoy = date("Y-m-j");
 							if ($hoy >= $fechaLimite) {
-								Page::showMessage(2, "El uso de tu contraseña ha expirado", "new_contra.php");
+								Page::showMessage(2, "El uso de tu contraseña ha expirado", "../public/cambiar_contrasena.php");
 							}
 							else{
 								Page::showMessage(1, "Autenticación correcta", "../public/index.php");
@@ -39,7 +39,7 @@ try{
 			}
 		}
 	}else{
-		Page::showMessage(3, "No hay usuarios disponibles", "register.php");
+		Page::showMessage(3, "No hay usuarios disponibles", "nuevacuenta.php");
 	}
 }catch(Exception $error){
 	Page::showMessage(2, $error->getMessage(), null);

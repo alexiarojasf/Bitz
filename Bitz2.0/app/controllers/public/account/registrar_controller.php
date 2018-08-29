@@ -5,10 +5,10 @@ try {
 	$usuario = new Usuario;
 	if (isset($_POST['crear'])) {
 		$_POST = $usuario->validateForm($_POST);
-		if ($usuario->setAlias($_POST['usuario'])) {
+		if ($usuario->setAlias(htmlentities($_POST['usuario']))) {
 			$usuarioexistente->getUsuarioExistente();
 			if (!$usuarioexistente) {
-				if ($usuario->setCorreo($_POST['correo'])) {
+				if ($usuario->setCorreo(htmlentities($_POST['correo']))) {
 					$correolibre = $usuario->CorreoExistente();
 					if (!$correolibre) {
 						$contra = $_POST['clave1'];
@@ -17,6 +17,7 @@ try {
 								if ($_POST['clave2'] != $_POST['correo']) {
 									if ($_POST['clave1'] != $_POST['usuario']) {
 										if ($_POST['clave2'] != $_POST['correo']) {
+											 //STRLEN -> LEE LA LONGITUD DE UN STRING
 											if (strlen($contra) >= 8) {
 												// PREG_MATCH <- HACE UNA COMPARACIÓN
 												if (preg_match('`[a-z]`', $contra)) {
@@ -24,14 +25,13 @@ try {
 														if (preg_match('`[0-9]`', $contra)) {
 															$especiales = '/[\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]/';
 															if (preg_match($especiales, $contra)) {
-																if ($usuario->setClave($_POST['clave1'])) {
+																if ($usuario->setClave(htmlentities($_POST['clave1']))) {
 																	$response_recaptcha = $_POST['g-recaptcha-response'];
 																	if (isset($response_recaptcha) && $response_recaptcha) {
-																		$secret = "6LdE7WsUAAAAAPMBlXANwFIK4CWyeg_kW2i-zWD7";
+																		$secret = "6LdE7WsUAAAAAPMBlXANwFIK4CWyeg_kW2i-zWD7"; //CLAVE SECRETA QUE DA EL SITIO DE CAPTCHA
 																		$ip = $_SERVER['REMOTE_ADDR'];
 																		$validation_server = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response_recaptcha&remoteip=$ip");
 																		if ($validation_server != null) {
-																			// Se crea el usuario (cliente)
 																			if ($usuario->createUsuario()) {
 																				Page::showMessage(1, "Usuario creado, llena tus datos personales al iniciar sesion", "index.php");
 																			}
