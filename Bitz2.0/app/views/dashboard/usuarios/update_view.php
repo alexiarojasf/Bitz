@@ -31,11 +31,19 @@ $contraseña = $usuario->getClave();
                                 </div>
                                 <div class="input-field col s12 m6 l6">
                                     <input id="contra1" type="password" autocomplete = "off" class="validate" name="clave1">
-                                    <label for="contra1">Contraseña</label>
+                                    <label for="contra1">Contraseña anterior</label>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
                                     <input id="contra2" type="password" autocomplete = "off" class="validate" name="clave2">
-                                    <label for="contra2">Repite contraseña</label>
+                                    <label for="contra2">Repite contraseña anterior</label>
+                                </div>
+                                <div class="input-field col s12 m6 l6">
+                                    <input id="contran1" type="password" autocomplete = "off" class="validate" name="contran1">
+                                    <label for="contran1">Nueva contraseña</label>
+                                </div>
+                                <div class="input-field col s12 m6 l6">
+                                    <input id="contran2" type="password" autocomplete = "off" class="validate" name="contran2">
+                                    <label for="contran2">Repite nueva contraseña</label>
                                 </div>
                                 <div class="input-field col s12 m6 l6">
                                     <input id="correo" type="email" autocomplete = "off" class="validate" name="correo" value="<?php print($usuario->getCorreo());?>">

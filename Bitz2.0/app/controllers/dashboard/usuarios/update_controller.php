@@ -14,12 +14,12 @@ try{
                             if($usuario->setApellidos($_POST['apellido'])){
                                 if($usuario->setTelefono($_POST['telefono'])){
                                     if($usuario->setClave($_POST['clave1'])){
-                                        if($usuario->checkPassword()){
-                                            if($_POST['usuario']==$_POST['clave2']){
+                                        if($usuario->checkPassword()){ 
+                                            if($_POST['usuario']==$_POST['contran2']){
                                                 throw new Exception("La contraseña no puede ser el nombre de usuario");
                                             }else if($_POST['clave2'] == $usuario->getClave()){
-                                                if($usuario->setClave($_POST['clave2'])){
-                                                    $contra = $_POST['clave2'];
+                                                if($usuario->setClave($_POST['contran2'])){
+                                                    $contra = $_POST['contran2'];
                                                         if(strlen($contra) >= 8){
                                                             //PREG_MATCH <- HACE UNA COMPARACIÓN
                                                             if(preg_match('`[a-z]`', $contra)){
