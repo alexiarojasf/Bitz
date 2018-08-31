@@ -43,8 +43,8 @@ class Page extends Component{
            <!--Nav-->
            <ul id='dropdown1' class='dropdown-content'>
             <li><a href='configurar_cuenta.php?id=$_SESSION[id_usuario]'>Editar Perfil</a></li>
-            <li><a href='pedidos.php'>Mis pedidos</a></li>
-            <li><a href='cambiar_contrasena.php'>Cambiar contraseña</a></li>
+            <li><a href='pedidos.php?id=$_SESSION[id_usuario]'>Mis pedidos</a></li>
+            <li><a href='cambiar_contrasena.php?id=$_SESSION[id_usuario]'>Cambiar contraseña</a></li>
             <li class='divider'></li>
             </ul>
            <nav>

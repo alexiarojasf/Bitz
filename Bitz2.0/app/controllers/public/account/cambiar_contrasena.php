@@ -1,7 +1,8 @@
 <?php
 require_once("../app/models/cliente.class.php");
 try{
-    if(isset($_POST['actualizar'])){    
+    if(isset($_GET['id'])){  
+    if(isset($_POST['actualizar'])){  
         $usuario = new Usuario;
         $_POST = $usuario->validateForm($_POST);
         if($usuario->setId($_SESSION['id_usuario'])){ 
@@ -68,6 +69,9 @@ try{
             Page::showMessage(2, "Usuario incorrecto", "../public/cambiar_contrasena.php");
         }
     }
+}else{
+    Page::showMessage(2, "Debes iniciar sesión", "index.php"); 
+}
 }catch(Exception $error){
     Page::showMessage(2, $error->getMessage(), null);
 }
