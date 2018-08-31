@@ -1,6 +1,7 @@
 <?php
 require_once("../app/models/factura.class.php");//se llama el modelo de mangas
 try{
+	$_SESSION['lapso'] = time();
 	if(isset($_GET['id'])){  
 	$factura = new Factura;//Try con la funcion de buscar
 	$data = $factura->getMisFacturas();

@@ -1,6 +1,7 @@
 <?php
 require_once("../app/models/cliente.class.php");
 try{
+    $_SESSION['lapso'] = time();
     if(isset($_GET['id'])){  
     if(isset($_POST['actualizar'])){  
         $usuario = new Usuario;
