@@ -54,7 +54,8 @@ class Page extends Component{
 
 	public static function templateHeader($title){
 		session_start();
-		ini_set("date.timezone","America/El_Salvador");
+        ini_set("date.timezone","America/El_Salvador");
+        $fecha = date('Y-m-j');
 		print("
 			
         <!DOCTYPE html>
@@ -106,6 +107,7 @@ class Page extends Component{
               <a href='#!user'><img class='circle ' src='../../web/images/fotos_usu/$_SESSION[foto_usu]'></a>
               <a href='#!name'><span class='white-text name '>$_SESSION[usuario]</span></a><a href='../usuarios/update.php?id=$_SESSION[id_usuario]' class='white-text'>Editar perfil</a>
               <a href='#!email'><span class='white-text email '>$_SESSION[correo_usu]</span></a>
+              <span class='white-text'><h6>Fecha de hoy :</h6></span><a href='#!date'><span class='white-text email '>$fecha</span></a>
             </div></li>
             <li><a href='../dashboard/menu_ad.php' class='white-text'><i class='material-icons right white-text'>home</i>Dashboard</a></li>
             <li><a href='../usuarios/index.php' class='white-text'><i class='material-icons right white-text'>account_circle</i>Usuarios</a></li>
