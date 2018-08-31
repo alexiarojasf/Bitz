@@ -13,12 +13,11 @@ try{
 		if(isset($_POST['enviar'])){
             $_POST = $object->validateForm($_POST);
             if($object->setCorreo($_POST['correo'])){
-			if($object->setNombres($_POST['nombre'])){
-				// Se verifica la existencia del correo y que tenga un estado "Activo"
+			if($object->setAlias($_POST['usuario'])){
 				if($object->VerificarCorreo()){
-                    if($_POST['nombre']== $object->getNombres()){ 
+                    if($_POST['usuario']== $object->getAlias()){ 
                     $correo= $_POST['correo'];
-                    $nombre= $_POST['nombre'];
+                    $nombre= $_POST['usuario'];
                     $object->RestablecerContra($nueva);
                 
                     $mail = new PHPMailer;

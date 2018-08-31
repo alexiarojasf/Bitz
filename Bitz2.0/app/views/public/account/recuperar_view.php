@@ -14,8 +14,8 @@
                                 </div>
                                 <div class="row">
                                 <div class="input-field col s12 m6 l8">
-                                    <input id="nombre" type="text" class="validate" name="nombre"  oncopy="return false" onpaste="return false" >
-                                    <label for="nombre">Nombre</label>
+                                    <input id="usuario" type="text" class="validate" name="usuario"  oncopy="return false" onpaste="return false" >
+                                    <label for="usuario">Usuario</label>
                                 </div>
                             </div>
                             <div class="input-field col s12 m6 l8">

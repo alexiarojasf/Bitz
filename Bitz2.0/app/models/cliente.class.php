@@ -325,12 +325,12 @@ class Usuario extends Validator{
 		return Database::getRow($sql, $params);
 	}
 	public function VerificarCorreo(){
-		$sql = "SELECT id_usuario, nombre_usu FROM usuario WHERE correo_usu = ?";
+		$sql = "SELECT id_usuario, usuario FROM usuario WHERE correo_usu = ?";
 		$params = array($this->correo);
 		$data = Database::getRow($sql, $params);
 		if($data){
 			$this->id = $data['id_usuario'];
-			$this->nombres = $data['nombre_usu'];
+			$this->alias = $data['usuario'];
 			return true;
 		}else{
 			return false;
