@@ -36,7 +36,7 @@
                                         <i class="material-icons white-text right">check</i>
                                     </span>
                                 </button>
-                                <a id="button-margin" class="waves-effect waves-light btn but-rounded but-st-blue-moon" href="index.php">
+                                <a id="button-margin" class="waves-effect waves-light btn but-rounded but-st-blue-moon" href="../../public/logout.php">
                                     <i class="material-icons right white-text">clear</i>Cancelar</a>
                             </div>
                         </form>
