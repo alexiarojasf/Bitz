@@ -41,34 +41,18 @@ class Page extends Component{
             }
            print("<header>
            <!--Nav-->
-           <ul id='dropdown1' class='dropdown-content'>
-            <li><a href='configurar_cuenta.php?id=$_SESSION[id_usuario]'>Editar Perfil</a></li>
-            <li><a href='pedidos.php?id=$_SESSION[id_usuario]'>Mis pedidos</a></li>
-            <li><a href='cambiar_contrasena.php?id=$_SESSION[id_usuario]'>Cambiar contraseña</a></li>
-            <li class='divider'></li>
-            </ul>
            <nav>
            <div class='nav-wrapper'>
                <a href='#' class='brand-logo'><img src='../web/images/logoblitz.png' height='60px' width='60px'></a>
                <a href='#' data-activates='mobile-demo' class='button-collapse'><i class='material-icons'>menu</i></a>
                <ul class='right hide-on-med-and-down'>
-                   <li><a href='index.php'>Inicio</a></li>
-                   <li><a href='categoria.php'>Categorias</a></li>
-                   <li><a href='carrito.php'>Carrito</a></li>
-                   <li><a href='faq.php'>FAQ</a></li>
                    <li><a class='dropdown-button' href='#!' data-activates='dropdown1'>$_SESSION[usuario]<i class='material-icons right white-text'>arrow_drop_down</i></a></li>
-                   <li><a href='logout.php'>Cerrar Sesión</a></li>
                </ul>
                <ul class='side-nav' id='mobile-demo'>
                    <div class='imgmenu'>
                        <img src='../web/images/mobilemenu.jpg' alt='>
                    </div>
-                   <li><a href='Index.html'>Inicio</a></li>
-                   <li><a href='pages/productos.html'>Productos</a></li>
-                   <li><a href='pages/promociones.html'>Promociones</a></li>
-                   <li><a href='pages/carrito.html'>Carrito</a></li>
                    <li><a href='pages/login.html'>Ingresar</a></li>
-                   <li><a href='pages/faq.html'>FAQ</a></li>
                </ul>
            </div>
            </nav>
@@ -100,7 +84,7 @@ class Page extends Component{
                    toast();
                });
                function toast() {
-                   var $toastContent = $("<span><h6>Pasó un mes desde tu último cambio de contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../public/restaurar_contra.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
+                   var $toastContent = $("<span><h6>Pasó un mes desde tu último cambio de contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../public/cambiar_contrasena.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
                    Materialize.toast($toastContent, 6000);
                }
                </script>');
@@ -110,7 +94,7 @@ class Page extends Component{
                    toast();
                });
                function toast() {
-                   var $toastContent = $("<span><h6>Pasaron 2 meses desde tu último cambio de contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../public/restaurar_contra.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
+                   var $toastContent = $("<span><h6>Pasaron 2 meses desde tu último cambio de contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../public/cambiar_contrasena.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
                    Materialize.toast($toastContent, 6000);
                }
                </script>');
@@ -120,7 +104,7 @@ class Page extends Component{
                    toast();
                });
                function toast() {
-                   var $toastContent = $("<span><h6>Faltan 5 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../public/restaurar_contra.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
+                   var $toastContent = $("<span><h6>Faltan 5 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../public/cambiar_contrasena.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
                    Materialize.toast($toastContent, 6000);
                }
                </script>');
@@ -130,7 +114,7 @@ class Page extends Component{
                    toast();
                });
                function toast() {
-                   var $toastContent = $("<span><h6>Faltan 4 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../public/restaurar_contra.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
+                   var $toastContent = $("<span><h6>Faltan 4 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../public/cambiar_contrasena.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
                    Materialize.toast($toastContent, 6000);
                }
                </script>');
@@ -140,7 +124,7 @@ class Page extends Component{
                    toast();
                });
                function toast() {
-                   var $toastContent = $("<span><h6>Faltan 3 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../public/restaurar_contra.php?../usuarios/update.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
+                   var $toastContent = $("<span><h6>Faltan 3 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../public/cambiar_contrasena.php?../usuarios/update.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
                    Materialize.toast($toastContent, 6000);
                }
                </script>');
@@ -150,7 +134,7 @@ class Page extends Component{
                    toast();
                });
                function toast() {
-                   var $toastContent = $("<span><h6>Faltan 2 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../public/restaurar_contra.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
+                   var $toastContent = $("<span><h6>Faltan 2 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../public/cambiar_contrasena.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
                    Materialize.toast($toastContent, 6000);
                }
                </script>');
@@ -160,7 +144,7 @@ class Page extends Component{
                    toast();
                });
                function toast() {
-                   var $toastContent = $("<span><h6>Faltan 1 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../public/restaurar_contraphp?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
+                   var $toastContent = $("<span><h6>Faltan 1 dias para que cambies tu contraseña</h6></span><a class='.$a.'btn-flat toast-action'.$a.' href='.$a.'../public/cambiar_contrasena.php?id='.$_SESSION['id_usuario'].''.$a.'>Go!</a>");
                    Materialize.toast($toastContent, 6000);
                }
                </script>');

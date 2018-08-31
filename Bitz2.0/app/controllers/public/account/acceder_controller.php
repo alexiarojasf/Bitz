@@ -22,13 +22,13 @@ try {
 							$fechaLimite = strtotime('+90 day', strtotime($fechaUsu));
 							$fechaLimite = date('Y-m-j', $fechaLimite); 
 							$hoy = date("Y-m-j");
-							if ($hoy >= $fechaLimite) {
-								unset($_SESSION['id_usuario']); 
-								Page::showMessage(2, "El uso de tu contraseña ha expirado", "new_contra.php");
-							}
-							else if ($sesion == 0) {
+							if ($sesion == 0) {
 								if ($object->SesionUnica1()) {
+									if ($hoy >= $fechaLimite) {
+										Page::showMessage(2, "El uso de tu contraseña ha expirado", "restaurar_contra.php");
+									}else{
 									Page::showMessage(1, "Autenticación correcta", "../public/index.php");
+								}
 								}
 							}else{
 								//Se destruyen las variables
