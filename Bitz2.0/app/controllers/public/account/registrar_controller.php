@@ -6,9 +6,7 @@ try {
 	if (isset($_POST['crear'])) {
 		$_POST = $usuario->validateForm($_POST);
 		if ($usuario->setAlias(htmlentities($_POST['usuario']))) {
-			$usuarioexistente->getUsuarioExistente();
-			if (!$usuarioexistente) {
-				if ($usuario->setCorreo(htmlentities($_POST['correo']))) {
+				if ($usuario->setCorreo($_POST['correo'])) {
 					$correolibre = $usuario->CorreoExistente();
 					if (!$correolibre) {
 						$contra = $_POST['clave1'];
@@ -93,15 +91,12 @@ try {
 						}
 					}
 					else {
+						throw new Exception("Correo en uso");
 					}
 				}
 				else {
 					throw new Exception("Correo incorrecto");
 				}
-			}
-			else {
-				throw new Exception("Usuario en uso");
-			}
 		}
 		else {
 			throw new Exception("Alias incorrecto");

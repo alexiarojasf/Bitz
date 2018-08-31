@@ -317,11 +317,6 @@ class Usuario extends Validator{
 			return false;
 		}
 	}
-	public function UsuarioExistente(){
-		$sql ="SELECT * FROM usuario WHERE usuario = ?";
-		$params = array($this->id);
-		return Database::getRow($sql, $params);
-	}
 	public function CorreoExistente(){
 		$sql = "SELECT * FROM usuario WHERE correo_usu = ?";
 		$params = array($this->correo);
