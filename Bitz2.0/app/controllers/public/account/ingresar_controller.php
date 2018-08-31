@@ -7,7 +7,7 @@ try{
 			$_POST = $object->validateForm($_POST);
 			if($object->setAlias(htmlentities($_POST['alias']))){
 				if($object->checkAlias()){
-					if($object->setClave(htmlentities($_POST['clave']))){
+					if($object->setClave($_POST['clave'])){
 						if($object->checkPassword()){
 							$_SESSION['id_usuario'] = $object->getId();
 							$_SESSION['usuario'] = $object->getAlias();
@@ -20,6 +20,7 @@ try{
 							$fechaLimite = date ('Y-m-j',$fechaLimite);
 							$hoy = date("Y-m-j");
 							if ($hoy >= $fechaLimite) {
+								unset
 								Page::showMessage(2, "El uso de tu contraseña ha expirado", "../public/cambiar_contrasena.php");
 							}
 							else{

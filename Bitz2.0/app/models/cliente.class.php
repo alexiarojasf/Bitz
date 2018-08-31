@@ -236,8 +236,10 @@ class Usuario extends Validator{
 	}
 	public function createUsuario(){
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO usuario(usuario, contrasena,correo_usu, tipo_usu) VALUES(?, ?, ?, 3)";
-		$params = array($this->alias, $hash, $this->correo);
+		$sql = "INSERT INTO usuario(usuario, contrasena,correo_usu, tipo_usu, fecha_creacion) VALUES(?, ?, ?, ?,?)";
+		$tipo = 3;
+		$fecha1= date("Y-m-d");
+		$params = array($this->alias, $hash, $this->correo, $tipo, $fecha1);
 		return Database::executeRow($sql, $params);
 	}
 	public function readUsuario(){

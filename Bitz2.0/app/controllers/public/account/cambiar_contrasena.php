@@ -5,7 +5,7 @@ try{
         $usuario = new Usuario;
         $_POST = $usuario->validateForm($_POST);
         if($usuario->setId($_SESSION['id_usuario'])){ 
-            if(htmlentities($_POST['contraactual']) == htmlentities($_POST['contraactual2'])){
+            if($_POST['contraactual'] == $_POST['contraactual2']){
                 if($usuario->setClave($_POST['contraactual'])){
                     if($usuario->checkPassword()){
                         $contra = $_POST['contranueva'];
@@ -20,7 +20,7 @@ try{
                                                 if(preg_match('`[0-9]`', $contra)){
                                                     $especiales = '/[\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]/';
                                                   if(preg_match($especiales, $contra)){
-                                                    if($usuario->setClave(htmlentities($_POST['contranueva']))){
+                                                    if($usuario->setClave($_POST['contranueva'])){
                                                         if($usuario->changePassword()){
                                                             $usuario->FechaCreacion();
                                                             Page::showMessage(1,"Exito, clave actualizada", "../public/index.php");

@@ -23,7 +23,7 @@ try {
 														if (preg_match('`[0-9]`', $contra)) {
 															$especiales = '/[\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]/';
 															if (preg_match($especiales, $contra)) {
-																if ($usuario->setClave(htmlentities($_POST['clave1']))) {
+																if ($usuario->setClave($_POST['clave1'])) {
 																	$response_recaptcha = $_POST['g-recaptcha-response'];
 																	if (isset($response_recaptcha) && $response_recaptcha) {
 																		$secret = "6LdE7WsUAAAAAPMBlXANwFIK4CWyeg_kW2i-zWD7"; //CLAVE SECRETA QUE DA EL SITIO DE CAPTCHA
@@ -31,6 +31,7 @@ try {
 																		$validation_server = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response_recaptcha&remoteip=$ip");
 																		if ($validation_server != null) {
 																			if ($usuario->createUsuario()) {
+
 																				Page::showMessage(1, "Usuario creado, llena tus datos personales al iniciar sesion", "index.php");
 																			}
 																			else {

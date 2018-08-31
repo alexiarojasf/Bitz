@@ -11,8 +11,8 @@ try{
                         if($usuario->setNombres(htmlentities($_POST['nombre']))){
                             if($usuario->setApellidos(htmlentities($_POST['apellido']))){
                                 if($usuario->setTelefono(htmlentities($_POST['telefono']))){
-                                    if($usuario->setCorreo(htmlentities($_POST['correo']))){
-                                        if($usuario->setDireccion(htmlentities($_POST['direccion']))){   
+                                    if($usuario->setCorreo($_POST['correo'])){
+                                        if($usuario->setDireccion($_POST['direccion'])){   
                                     if($usuario->updateUsuarios()){
                                         Page::showMessage(1, "Usuario actualizado, vuelva a iniciar sesión para ver los cambios", "index.php");
                                     }else{
