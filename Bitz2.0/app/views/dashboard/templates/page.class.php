@@ -55,7 +55,7 @@ class Page extends Component{
 	public static function templateHeader($title){
 		session_start();
         ini_set("date.timezone","America/El_Salvador");
-        $fecha = date('Y-m-j');
+        $fecha = date('Y-m-j h:i');
 		print("
 			
         <!DOCTYPE html>

@@ -15,7 +15,9 @@ class Usuario extends Validator{
 	private $fecha = null;
 	private $tipousu = null;
 	private $fechadehoy = null;
+	private $fechabloq = null;
 	private $fechacuenta = null;
+	private $lognum = null;
 
 	
 
@@ -79,6 +81,17 @@ class Usuario extends Validator{
 	public function getFechaHoy(){
 		return $this->fechadehoy;
 	}
+	public function setFechaBloq($value){
+		if($value){
+			$this->fechabloq = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getFechaBloq(){
+		return $this->fechabloq;
+	}
 	public function setFechaCuenta($value){
 		if($value){
 			$this->fechacuenta = $value;
@@ -115,6 +128,17 @@ class Usuario extends Validator{
 	}
 	public function getTelefono(){
 		return $this->telefono;
+	}
+	public function setLogNum($value){
+		if($this->validateAlphanumeric($value, 1, 50)){
+			$this->lognum = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getLogNum(){
+		return $this->lognum;
 	}
 	
 	public function setDireccion($value){
@@ -189,7 +213,7 @@ class Usuario extends Validator{
 
 	//Métodos para manejar la sesión del usuario
 	public function checkAlias(){
-		$sql = "SELECT id_usuario,correo_usu,foto_usu,fecha_creacion,tipo_usu FROM usuario WHERE usuario = ?";
+		$sql = "SELECT id_usuario,correo_usu,foto_usu,fecha_creacion,fecha_bloq,tipo_usu FROM usuario WHERE usuario = ?";
 		$params = array($this->alias);
 		$data = Database::getRow($sql, $params);
 		if($data){
@@ -197,12 +221,40 @@ class Usuario extends Validator{
 			$this->correo = $data['correo_usu'];
 			$this->foto = $data['foto_usu'];
 			$this->fechadehoy = $data['fecha_creacion'];
+			$this->fechabloq = $data['fecha_bloq'];
 			$this->tipousu = $data['tipo_usu'];
 			return true;
 		}else{
 			return false;
 		}
 	} 
+
+	public function checkPassLog()
+	{
+		$sql = "SELECT log,fecha_bloq FROM usuario WHERE id_usuario = ?";
+		$params = array($this->id);
+		$data = Database::getRow($sql, $params);
+		if($data){
+			$this->lognum = $data['log'];
+			$this->fechabloq = $data['fecha_bloq'];
+			return true;
+		}else{
+			return null;
+		}
+	}
+	public function PassLog()
+	{
+		$sql = "UPDATE usuario SET log = ? WHERE id_usuario = ?";
+		$params = array($this->lognum, $this->id);
+		return Database::executeRow($sql, $params);
+	}
+	public function updateBloq()
+	{
+		$sql = "UPDATE usuario SET fecha_bloq = ? WHERE id_usuario = ?";
+		$params = array($this->fechabloq, $this->id);
+		return Database::executeRow($sql, $params);
+	}
+
 	public function checkPassword(){
 		$sql = "SELECT contrasena FROM usuario WHERE id_usuario = ?";
 		$params = array($this->id);

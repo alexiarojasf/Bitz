@@ -11,7 +11,7 @@
                         <form class="col s12 m12 l12" method="post">
                             <div class="row">
                                 <div class="input-field col s12 m3 l3">
-                                    <input name="busqueda" id="first_name" type="text" autocomplete = "off" class="validate">
+                                    <input name="busqueda" id="first_name" type="text" autocomplete = "off" class="validate" onkeypress="return soloLetras(event)">
                                     <label for="first_name">Buscar usuario
                                         <span>
                                             <i class="material-icons small right">search</i>
