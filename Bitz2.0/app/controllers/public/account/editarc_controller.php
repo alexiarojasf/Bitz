@@ -6,9 +6,9 @@ try{
         $usuario = new Usuario;
         if($usuario->setId($_GET['id'])){
             if($usuario->readUsuario()){
-                if(isset(htmlentities($_POST['actualizar']))){
+                if(isset($_POST['actualizar'])){
                     if($usuario->setAlias(htmlentities($_POST['usuario']))){
-                        if($usuario->setNombres(htmlentities($_POST['nombre'])){
+                        if($usuario->setNombres(htmlentities($_POST['nombre']))){
                             if($usuario->setApellidos(htmlentities($_POST['apellido']))){
                                 if($usuario->setTelefono(htmlentities($_POST['telefono']))){
                                     if($usuario->setCorreo(htmlentities($_POST['correo']))){
@@ -39,8 +39,10 @@ try{
         }
     }
 }
+}else{
+    Page::showMessage(2, "Debes iniciar sesión", "index.php"); 
 }
-}
+    }
 }catch (Exception $error){
 Page::showMessage(2, $error->getMessage(), null);
 }
